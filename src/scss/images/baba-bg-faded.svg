@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1920 1080" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="1130" id="Filter" width="1970" x="-25.0001" y="-5">
+<feDropShadow dx="-7.34641e-05" dy="20" flood-color="#000000" flood-opacity="0.333" in="SourceGraphic" result="Shadow" stdDeviation="10"/>
+</filter>
+</defs>
+<clipPath id="ArtboardFrame">
+<rect height="1080" width="1920" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M0 0L0 1080C0 966.693 218.746 779.327 401.663 720.422C684.437 629.36 1272.45 566.856 1441.75 540C1723.29 495.34 1920 224.149 1920 224.149L1920 0L0 0Z" fill="#ffbf00" fill-rule="nonzero" filter="url(#Filter)" stroke="none" vectornator:layerName="Curve 1" vectornator:shadowAngle="1.5708" vectornator:shadowColor="#000000" vectornator:shadowOffset="20" vectornator:shadowOpacity="0.333" vectornator:shadowRadius="20"/>
+<path d="M1920 360.844L1919.28 1080L1920 1080L1920 360.844Z" fill="#ffbf00" fill-rule="nonzero" opacity="1" stroke="#007aff" stroke-linecap="butt" stroke-linejoin="round" stroke-width="0.770754" vectornator:layerName="Curve 2"/>
+</g>
+</svg>

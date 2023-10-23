@@ -1,0 +1,23 @@
+type Photo @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  filename: String
+  fullPath: String
+}
+
+type Article @model @auth(rules: [{allow: public, operations: [read]}, {allow: owner}]) {
+  id: ID!
+  publisherEN: String!
+  publisherAR: String!
+  categoryEN: String!
+  categoryAR: String!
+  date: String!
+  year: Int
+  month: Int
+  day: Int
+  filename: String!
+  fileType: String!
+  parentPath: String!
+  fullPath: String!
+  title: String
+}
+ 

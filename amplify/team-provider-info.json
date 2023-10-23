@@ -1,0 +1,33 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify7a993dcf27284-staging-182607-authRole",
+      "UnauthRoleArn": "arn:aws:iam::029053304769:role/amplify-amplify7a993dcf27284-staging-182607-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::029053304769:role/amplify-amplify7a993dcf27284-staging-182607-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplify7a993dcf27284-staging-182607-deployment",
+      "UnauthRoleName": "amplify-amplify7a993dcf27284-staging-182607-unauthRole",
+      "StackName": "amplify-amplify7a993dcf27284-staging-182607",
+      "StackId": "arn:aws:cloudformation:us-east-2:029053304769:stack/amplify-amplify7a993dcf27284-staging-182607/97f70e00-0e05-11ee-a8e2-065f1cabb02d",
+      "AmplifyAppId": "dqrdjxcon34zj",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplify7a993dcf27284-staging-182607-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "hawajes": {}
+      },
+      "storage": {
+        "s3hawajesstorage": {}
+      },
+      "function": {
+        "getArticles": {
+          "deploymentBucketName": "amplify-amplify7a993dcf27284-staging-182607-deployment",
+          "s3Key": "amplify-builds/getArticles-6876736b574747765473-build.zip"
+        }
+      },
+      "api": {
+        "hawajes": {}
+      }
+    }
+  }
+}

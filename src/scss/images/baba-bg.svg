@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1920 1080" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="1130" id="Filter" width="1970" x="-25.0001" y="-5">
+<feDropShadow dx="-7.34641e-05" dy="20" flood-color="#000000" flood-opacity="0.333" in="SourceGraphic" result="Shadow" stdDeviation="10"/>
+</filter>
+</defs>
+<clipPath id="ArtboardFrame">
+<rect height="1080" width="1920" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer-1">
+<path d="M0 0.34855L0 1080C0 966.693 218.028 942.893 400.945 883.988C683.718 792.926 1271.73 730.422 1441.04 703.566C1722.57 658.906 1919.28 387.714 1919.28 387.714L1920 0L0 0.34855Z" fill="#ffbf00" fill-rule="nonzero" filter="url(#Filter)" stroke="none"/>
+</g>
+</svg>

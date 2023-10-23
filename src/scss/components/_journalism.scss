@@ -1,0 +1,49 @@
+@use "../util" as u;
+#journalism-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.publishers-container {
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--tan);
+}
+.box-link {
+    $size: clamp(250px,20vw, 1000px);
+    margin: 3%;
+    width: $size;
+    height: $size;
+    font-size: clamp(u.rem(15), u.rem(10) + 1vw, u.rem(24));
+    
+
+    // background-color: red;
+    color: #565656;
+    border: 3px solid #565656;
+    transition: 0.6s;
+    &:hover {
+        border-radius: 100%;
+        background-color: #565656;
+        color:  var(--ivory);
+    }
+}
+
+@include u.breakpoint-down(small) {
+    
+    .publishers-container {
+        // flex-direction: column;
+        .box-link { 
+            width: 90%;
+            &:hover {
+                border-radius: 0;
+            }
+        }
+    }
+
+    
+}

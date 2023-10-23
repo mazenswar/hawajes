@@ -1,0 +1,97 @@
+@use '../util/' as u;
+
+
+$videoWidth: 70%;
+
+#play-page {
+    .pdf-section {
+        width: 100%;
+        background-color: #565656;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .play-cover {
+        width: clamp(200px, 70%, 600px);
+    }
+    video {
+        width: 70%;
+        margin-bottom: 5%;
+    }
+    .image-section {
+        width:100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: var(--tan);
+        img {
+            margin: 2%;
+            width: clamp(300px, 45%, 600px);
+        }
+
+    }
+    
+    .song-section{
+        background: #565656;
+        
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        audio {
+            margin: 2%;
+            
+        }
+    }
+
+    .song-section, .pdf-section {
+        .page-title {
+            color: ivory
+        }
+    }
+}
+
+.theatre-tiles-container {
+    
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: var(--tan);
+    width: 100%;
+    margin: auto;
+    padding: 10%;
+    a {
+        // min-height: 45vh;
+        width: clamp(100px, 100%, 700px);
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        margin: 2%;
+        border: 1px solid #565656;
+        transition: 0.3s ease-in;
+        img {
+            width: 40%;
+            margin: 4%;
+        }
+        &:hover {
+            background-color: #565656;
+            color: ivory;
+            h3 {
+                color:ivory
+            }
+        }
+    }
+    
+}
+
+@include u.breakpoint-down(medium) {
+    .theatre-tiles-container {
+        a {
+            width: 100%;
+        }
+
+    }
+}

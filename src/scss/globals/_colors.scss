@@ -1,0 +1,71 @@
+// :root {
+// 	--background-color: hsl(0, 0%, 100%);
+// 	--text-color: hsl(0, 0%, 42%);
+// 	--header-text-color: hsl(315, 54%, 65%);
+// 	--nav-bg: #03000e;
+// 	--main-clr: #1e90ff;
+// 	--nav-shadow: 0px 3px var(--main-clr);
+// 	--oxford-blue: hsla(211, 96%, 9%, 1);
+// 	--fandango: hsla(323, 50%, 47%, 1);
+// 	--light-gray: hsla(0, 0%, 82%, 1);
+// 	--gainsboro: hsla(0, 0%, 86%, 1);
+// 	--light-sky-blue: hsla(204, 81%, 74%, 1);
+// 	--test: #d264b6;
+// 	--header: hsl(315, 55%, 61%);
+// 	--dark-gray: hsl(0, 0%, 26%);
+// 	--white: hsl(0, 0%, 100%);
+// 	--xx: hsl(160, 100%, 75%);
+// }
+
+:root {
+	// // made up
+	// --light-grey-text: #d0d0d0;
+	// // colors 1
+	// --b-charcoal: #292929;
+	// --b-grey: #585858;
+	// --b-yellow: hsl(50, 86%, 54%);
+	// --b-white: #fff;
+	// --b-ivory: #fffbe1;
+	// --b-black: #000;
+	// // colors
+	// --silver: hsla(60, 3%, 77%, 1);
+	// --smoky-black: hsla(60, 37%, 4%, 1);
+	// --rich-black: hsla(198, 42%, 11%, 1);
+	// --charcoal: hsla(200, 18%, 26%, 1);
+	// --paynes-gray: hsla(202, 11%, 43%, 1);
+	// --charcoal-2: hsla(199, 29%, 29%, 1);
+	// --paynes-gray-2: hsla(199, 18%, 40%, 1);
+	// --cadet-gray: hsla(200, 25%, 65%, 1);
+	// --timberwolf: hsla(60, 7%, 78%, 1);
+	--ivory: hsla(60, 50%, 96%, 1);
+	// --warm-yellow: #ffbf00;
+	// muneera-1
+	--light-grey: #EAEBEC;
+	--grey: #E3E4E5;
+	--medium-grey: #C6C7CB;
+	--dark-grey: #686958;
+	--dark-yellow: #E0B51D;
+	--light-yellow: #F3E8A6;
+
+	--charcoal: #262626; 
+	// designations
+	--background-color: var(--grain);
+	--dark-text-color: var(--blackboard);
+	--light-text-color: var(--blackboard);
+	--header-text-underline-color: var(--tan);
+	--header-text-color: var(--blackboard);
+	--link-color:var(--light-grey);
+	--hover-background-color: hsl(315, 55%, 61%);
+	--button-background-color: hsl(315, 55%, 61%);
+	--nav-background-color: var(--grain);
+	--nav-link-color: var(--blackboard);
+	--nav-link-underline-color: var(--tan);
+	--header-link-color: var(--blackboard);
+	// --headers-text-color:
+	// warm-tone-color scheme
+	--grain: #d7cec7;
+	--tan: #c09f80;
+	--blackboard: #565656;
+	--oxblood: #76323f;
+
+}

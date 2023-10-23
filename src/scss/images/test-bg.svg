@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="-0.385377 -0.385377 1920.94 1084.62" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M0 0L1920 0L1920 1080L0 1080L0 0Z" fill="#ffbf00" fill-rule="nonzero" opacity="1" stroke="#007aff" stroke-linecap="butt" stroke-linejoin="round" stroke-width="0.770754" vectornator:layerName="Rectangle 1"/>
+<path d="M1920 115.009C1920 115.009 1698.66 294.284 1513.28 337.044C1346.25 375.573 463.455 409.582 261.963 604.181C123.076 738.316 123.985 736.833 58.937 856.845C-6.11066 976.858 1.77233 1084.23 1.77233 1084.23L1920.56 1082.69L1920 115.009Z" fill="#f5f5f5" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Curve 1"/>
+</g>
+</svg>
