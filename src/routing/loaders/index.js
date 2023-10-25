@@ -1,7 +1,6 @@
 import { Storage, Amplify, DataStore } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
 import { Article, Photo } from '../../models';
-Amplify.configure(awsmobile);
+
 // images
 
 // HELPERS
