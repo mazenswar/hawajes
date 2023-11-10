@@ -60,6 +60,21 @@ p {
 	text-align: justify;
 }
 
+@include u.breakpoint-down(small) {
+	 p {
+		margin-top: 0;
+		font-size: clamp(u.rem(15), u.rem(9) + 3vw, u.rem(20));
+		text-align: justify;
+	 }
+	.link,
+	.link:visited,
+	.link:active {
+		li{
+		font-size: clamp(u.rem(15), u.rem(9) + 2.5vw, u.rem(20));}
+	}
+
+}
+
 
 
 li {
@@ -71,6 +86,7 @@ a,
 a:visited,
 a:active {
 	text-decoration: none;
+	color: inherit;
 }
 
 .link,

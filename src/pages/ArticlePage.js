@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { translateDateToArabicString } from '../util/helpers';
+import { isMobile } from 'react-device-detect';
 
 const imgExtensions = ['png', 'PNG', 'jpg', 'JPG', 'JPEG', 'jpeg'];
 const pdfExtensions = ['pdf', 'PDF'];
@@ -36,19 +37,21 @@ export default function ArticlePage() {
         />
       );
     } else if (pdfExtensions.includes(article.fileType)) {
-      return (
-        <object
-          data={file}
-          type="application/pdf"
-          className="pdf-viewer"
-          width={'90%'}
-          height={'700px'}
-        >
-          <p>
-            Unable to display PDF file. <a href={file}>Download</a> instead.
-          </p>
-        </object>
-      );
+      if (isMobile) {
+        window.location.replace(file);
+      } else {
+        return (
+          <object
+            data={file}
+            type="application/pdf"
+            className="pdf-viewer"
+            width={'90%'}
+            height={'700px'}
+          >
+            <p>حدث خطأ أثناء تحميل الملف، نرجوا المحاولة مجددًا بعد قليل</p>
+          </object>
+        );
+      }
     }
   }
   ////////////////////////////////

@@ -1,26 +1,44 @@
 import React, { Suspense } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from 'react-device-detect';
+
 export default function PlayPage() {
   const { video, images, songs, doc, cover, play } = useLoaderData();
+
   function renderDoc() {
     if (doc) {
-      return (
-        <section className="pdf-section">
-          <h1 className="page-title">النص المسرحي</h1>
-          <object
-            data={doc}
-            type="application/pdf"
-            className="pdf-viewer"
-            width={'80%'}
-            height={'400px'}
-          >
-            <p>
-              Unable to display PDF file. <a href={doc}>Download</a> instead.
-            </p>
-          </object>
-        </section>
-      );
+      if (isMobile) {
+        return (
+          <section className="pdf-section">
+            <h1 className="page-title">
+              <a href={doc} target="_blank" rel="noreferrer">
+                النص المسرحي
+              </a>
+            </h1>
+          </section>
+        );
+      } else {
+        return (
+          <section className="pdf-section">
+            <h1 className="page-title">النص المسرحي</h1>
+            <object
+              data={doc}
+              type="application/pdf"
+              className="pdf-viewer"
+              width={'80%'}
+              height={'400px'}
+            >
+              <p>حدث خطأ أثناء تحميل الملف، نرجوا المحاولة مجددًا بعد قليل</p>
+            </object>
+          </section>
+        );
+      }
     }
   }
 

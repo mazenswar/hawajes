@@ -37,7 +37,7 @@ function ContactUs() {
           <label>الرسالة</label>
           <textarea name="message" />
         </section>
-        <input type="submit" value="ارسل" />
+        <input type="submit" value="ارسال" />
       </form>
     </main>
   );

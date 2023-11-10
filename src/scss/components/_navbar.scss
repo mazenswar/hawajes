@@ -159,6 +159,7 @@ nav {
 
 @include u.breakpoint-down(small) {
 	nav {
+		--font-size: clamp(15px, 10vw, 25px);
 		.header {
 			a, a:visited {
 				img {
