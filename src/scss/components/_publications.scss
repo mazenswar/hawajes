@@ -11,7 +11,7 @@
 
  @include u.breakpoint-down(small) {
      .pdf-viewer {
-        width: 100%;
+        width: 90%;
         height: 60vh;
         margin: 30px 0;
      }
@@ -28,7 +28,7 @@
 //         align-items: center;
 //         // height: 45vh;
 //         padding: 5% 0;
-//         background-color: #565656;
+//         background-color: var(--blackboard);
 //         color: ivory;
 //     }
 //     img {
@@ -49,17 +49,17 @@
 // }
 //     #theatre {
 //         .publication-tile {
-//             border: 1px solid #565656;
+//             border: 1px solid var(--blackboard);
             
 //         }
 
 //     }
 //     #mawwal {
 //         background-color: var(--tan);
-//         .publication-tile{border: 1px solid #565656;}
+//         .publication-tile{border: 1px solid var(--blackboard);}
 //     }
 //     #children-stories {
-//         background-color: #565656;
+//         background-color: var(--blackboard);
 //         color: ivory;
 //         .publication-tile {
 //                 border: 1px solid ivory;

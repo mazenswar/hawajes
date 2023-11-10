@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 export default function PublicationPage() {
@@ -13,17 +13,25 @@ export default function PublicationPage() {
   return (
     <main>
       <h1 className="page-title">{nameAR[name]}</h1>
-      <object
-        data={file}
-        type="application/pdf"
-        className="pdf-viewer"
-        width={'80%'}
-        height={'400px'}
+      <Suspense
+        fallback={
+          <div>
+            <h1>Loading...</h1>
+          </div>
+        }
       >
-        <p>
-          Unable to display PDF file. <a href={file}>Download</a> instead.
-        </p>
-      </object>
+        <object
+          data={file}
+          type="application/pdf"
+          className="pdf-viewer"
+          width={'80%'}
+          height={'400px'}
+        >
+          <p>
+            Unable to display PDF file. <a href={file}>Download</a> instead.
+          </p>
+        </object>
+      </Suspense>
     </main>
   );
 }

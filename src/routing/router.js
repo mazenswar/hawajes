@@ -39,6 +39,11 @@ const router = createBrowserRouter([
         loader: loaders.mawwalLoader,
       },
       {
+        path: '/mawwal/:category/:id',
+        element: <pages.MawwalShowPage />,
+        loader: loaders.mawwalShowLoader,
+      },
+      {
         path: '/journalism',
         element: <pages.JournalismPage />,
         loader: loaders.journalismPageLoader,
@@ -81,6 +86,7 @@ const router = createBrowserRouter([
       {
         path: '/interviews',
         element: <pages.InterviewsPage />,
+        loader: loaders.interviewsLoader,
       },
       {
         path: '/photography',
@@ -88,9 +94,26 @@ const router = createBrowserRouter([
         loader: loaders.photographyLoader,
       },
       {
-        path: '/photography/:id',
+        path: '/photography/:category',
+        element: <pages.PhotographyCategoryPage />,
+        loader: loaders.photographyCategoryLoader,
+      },
+      {
+        path: '/photography/:category/:id',
         element: <pages.PhotoPage />,
         loader: loaders.photoLoader,
+      },
+      {
+        path: '/contact-us',
+        element: <pages.ContactUs />,
+      },
+      {
+        path: '/contact-us-success',
+        element: <pages.ContactSuccess />,
+      },
+      {
+        path: '/contact-us-error',
+        element: <pages.ContactError />,
       },
     ],
   },

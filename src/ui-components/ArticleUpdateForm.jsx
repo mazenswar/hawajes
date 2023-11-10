@@ -87,18 +87,18 @@ export default function ArticleUpdateForm(props) {
   }, [idProp, articleModelProp]);
   React.useEffect(resetStateValues, [articleRecord]);
   const validations = {
-    publisherEN: [{ type: "Required" }],
-    publisherAR: [{ type: "Required" }],
-    categoryEN: [{ type: "Required" }],
-    categoryAR: [{ type: "Required" }],
-    date: [{ type: "Required" }],
+    publisherEN: [],
+    publisherAR: [],
+    categoryEN: [],
+    categoryAR: [],
+    date: [],
     year: [],
     month: [],
     day: [],
-    filename: [{ type: "Required" }],
-    fileType: [{ type: "Required" }],
-    parentPath: [{ type: "Required" }],
-    fullPath: [{ type: "Required" }],
+    filename: [],
+    fileType: [],
+    parentPath: [],
+    fullPath: [],
     title: [],
   };
   const runValidationTasks = async (
@@ -188,7 +188,7 @@ export default function ArticleUpdateForm(props) {
     >
       <TextField
         label="Publisher en"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={publisherEN}
         onChange={(e) => {
@@ -224,7 +224,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Publisher ar"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={publisherAR}
         onChange={(e) => {
@@ -260,7 +260,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Category en"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={categoryEN}
         onChange={(e) => {
@@ -296,7 +296,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Category ar"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={categoryAR}
         onChange={(e) => {
@@ -332,7 +332,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Date"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={date}
         onChange={(e) => {
@@ -488,7 +488,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Filename"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={filename}
         onChange={(e) => {
@@ -524,7 +524,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="File type"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={fileType}
         onChange={(e) => {
@@ -560,7 +560,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Parent path"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={parentPath}
         onChange={(e) => {
@@ -596,7 +596,7 @@ export default function ArticleUpdateForm(props) {
       ></TextField>
       <TextField
         label="Full path"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={fullPath}
         onChange={(e) => {

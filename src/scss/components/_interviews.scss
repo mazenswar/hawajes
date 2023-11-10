@@ -1,0 +1,12 @@
+#interviews-page {
+    .play-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        video {
+            width: clamp(350px, 80%, 900px);
+        }
+    }
+    
+}

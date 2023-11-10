@@ -25,18 +25,22 @@ export default function PhotoCreateForm(props) {
   const initialValues = {
     filename: "",
     fullPath: "",
+    category: "",
   };
   const [filename, setFilename] = React.useState(initialValues.filename);
   const [fullPath, setFullPath] = React.useState(initialValues.fullPath);
+  const [category, setCategory] = React.useState(initialValues.category);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setFilename(initialValues.filename);
     setFullPath(initialValues.fullPath);
+    setCategory(initialValues.category);
     setErrors({});
   };
   const validations = {
     filename: [],
     fullPath: [],
+    category: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -66,6 +70,7 @@ export default function PhotoCreateForm(props) {
         let modelFields = {
           filename,
           fullPath,
+          category,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -122,6 +127,7 @@ export default function PhotoCreateForm(props) {
             const modelFields = {
               filename: value,
               fullPath,
+              category,
             };
             const result = onChange(modelFields);
             value = result?.filename ?? value;
@@ -147,6 +153,7 @@ export default function PhotoCreateForm(props) {
             const modelFields = {
               filename,
               fullPath: value,
+              category,
             };
             const result = onChange(modelFields);
             value = result?.fullPath ?? value;
@@ -160,6 +167,32 @@ export default function PhotoCreateForm(props) {
         errorMessage={errors.fullPath?.errorMessage}
         hasError={errors.fullPath?.hasError}
         {...getOverrideProps(overrides, "fullPath")}
+      ></TextField>
+      <TextField
+        label="Category"
+        isRequired={false}
+        isReadOnly={false}
+        value={category}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              filename,
+              fullPath,
+              category: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.category ?? value;
+          }
+          if (errors.category?.hasError) {
+            runValidationTasks("category", value);
+          }
+          setCategory(value);
+        }}
+        onBlur={() => runValidationTasks("category", category)}
+        errorMessage={errors.category?.errorMessage}
+        hasError={errors.category?.hasError}
+        {...getOverrideProps(overrides, "category")}
       ></TextField>
       <Flex
         justifyContent="space-between"

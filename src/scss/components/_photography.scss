@@ -1,5 +1,6 @@
-#photo-page {
 
+#photo-page {
+ 
 
     .photo-page-header {
             // padding: 5% 0;
@@ -16,7 +17,7 @@
                 border-radius: 20px 0 20px 0;
             }
     
-            background-color: #565656;
+            background-color: var(--blackboard);
             color: ivory;
             display: flex;
             align-items: center;
@@ -49,13 +50,20 @@
         width: clamp(200px, 80%, 600px);
         height: auto;
         margin: 5%;
+        
     }
 }
 
 .photo-section {
-    height: 50vh;
+    // height: 50vh;
     width: 100vw;
-    background-color: var(--tan);
+    #paginated-container {
+        background-color: var(--tan);
+        ul {
+            background-color: var(--tan);
+            .page-link, a {color: var(--blackboard)};
+        }
+    }
 }
 
 .photo-tile {
@@ -67,12 +75,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // border: 1px solid #565656;
+    // border: 1px solid var(--blackboard);
     margin: 2%;
     transition: 1s;
     color: var(--dark-text-color);
 
     img {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        border: 10px solid ivory;
         // width: 90%;
         max-width: 90%;
         max-height: 90%;

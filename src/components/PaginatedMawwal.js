@@ -5,7 +5,7 @@ import MawwalTile from './MawwalTile';
 function Mawwaeel({ currentItems }) {
   return (
     currentItems &&
-    currentItems.map((a) => <MawwalTile key={`mawwal-${a}`} data={a} />)
+    currentItems.map((a) => <MawwalTile key={`mawwal-${a.id}`} data={a} />)
   );
 }
 

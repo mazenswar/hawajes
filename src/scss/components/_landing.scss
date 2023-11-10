@@ -1,104 +1,29 @@
 @use '../util/' as u;
 
-.hero-section {
-    img {
-        width: 100%;
-    }
-    .text-div {
-        padding: 10%;
-        width: 100%;
-        h2{
-            line-height: 1.5;
-            font-weight: 500;
-            text-decoration: underline;
-            text-decoration-color: var(--tan);
-            text-decoration-thickness: 2px;
-            
-            // background-color: #262626;
-            // color: rgb(186, 186, 186);
-        }
-    }
-}
+
 
 #landing-page {
 
     .intro {
-        background-color: var(--tan);
+        color: var(--blackboard);
         padding: 10%;
         width: 100%;
         h3 {line-height: 2.5};
         columns: 700px;
         column-gap: 100px;
-        
-    }
-
-    .cv {
-        display: flex;
-        flex-wrap: wrap;
-        background-color: #565656;
-        
-        padding: 5%;
-        h2 {
-            width: 100%;
-            text-align: center;
-            color: ivory;
-            padding: 5%;
-        }
-        .cv-row {
-            margin: 2vw 0;
-            display: flex;
-            // flex-direction: column;
-            width: 95%;
-            justify-content: space-evenly;
-            align-items: center;
-            background-color: var(--tan);
-            padding: 5% 10%;
-            p {
-                padding: 0;
-                margin: 0;
-            }
-            .year {
-                // width: 30%;
-                height: 100%;
-                padding: 2%;
-                background-color: #565656;
-                color: ivory;
-                font-size: clamp(15px, 3vw, 50px);
-            }
-        }
-    }
-}
-
-@include u.breakpoint(medium) {
-    .hero-section {
-        width: 100%;
-        padding: 5%;
-        // margin: auto;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-        // flex-wrap: wrap;
-        img {
-            width: clamp(100px, 40%, 500px);
-            // height: 100%;   
-            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-        }
-        .text-div {
-            padding: 5%;
-            // background-color: var(--tan);
-            // height: 100%;
-            max-width: 60%;
-        }
-        
-    }
-    #landing-page {
-        .cv {
-            // .cv-row { width: 50%;margin: 2vw;}
+        // a, a:visited {
             
+        // }
+
+        ul {
+            list-style-type: square;
         }
     }
+
+    
 }
+
+
 
 
 

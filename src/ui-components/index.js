@@ -5,6 +5,8 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as MawwalCreateForm } from "./MawwalCreateForm";
+export { default as MawwalUpdateForm } from "./MawwalUpdateForm";
 export { default as PhotoCreateForm } from "./PhotoCreateForm";
 export { default as PhotoUpdateForm } from "./PhotoUpdateForm";
 export { default as ArticleCreateForm } from "./ArticleCreateForm";

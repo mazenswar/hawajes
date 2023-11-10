@@ -19,16 +19,16 @@
     margin: 3%;
     width: $size;
     height: $size;
-    font-size: clamp(u.rem(15), u.rem(10) + 1vw, u.rem(24));
+    font-size: clamp(u.rem(15), u.rem(10) + 4vw, u.rem(24));
     
 
     // background-color: red;
-    color: #565656;
-    border: 3px solid #565656;
+    color: var(--blackboard);
+    border: 3px solid var(--blackboard);
     transition: 0.6s;
     &:hover {
         border-radius: 100%;
-        background-color: #565656;
+        background-color: var(--blackboard);
         color:  var(--ivory);
     }
 }

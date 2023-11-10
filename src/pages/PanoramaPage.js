@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
-import Banner from '../components/Banner';
+
 import PaginatedArticles from '../components/PaginatedArticles';
 
 function PanoramaPage() {
@@ -13,7 +13,6 @@ function PanoramaPage() {
 
   return (
     <main id="panorama-page">
-      <Banner imgUrl={header} />
       <h1 className="page-title">بانوراما الخليج</h1>
 
       <PaginatedArticles data={list} itemsPerPage={15} />

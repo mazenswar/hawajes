@@ -19,7 +19,7 @@ export default function PhotoPage() {
         return (
           <Link
             className="photo-nav disabled right"
-            to={`../photography/${prevPhotoId}`}
+            to={`../photography/${photo.category}/${prevPhotoId}`}
           >
             {' '}
             {'<'}{' '}
@@ -31,7 +31,7 @@ export default function PhotoPage() {
         return (
           <Link
             className="photo-nav right"
-            to={`../photography/${prevPhotoId}`}
+            to={`../photography/${photo.category}/${prevPhotoId}`}
           >
             {' '}
             {'<'}{' '}
@@ -45,7 +45,7 @@ export default function PhotoPage() {
         return (
           <Link
             className="photo-nav disabled left"
-            to={`../photography/${nextPhotoId}`}
+            to={`../photography/${photo.category}/${nextPhotoId}`}
           >
             {' '}
             {'>'}{' '}
@@ -53,7 +53,10 @@ export default function PhotoPage() {
         );
       } else {
         return (
-          <Link className="photo-nav left" to={`../photography/${nextPhotoId}`}>
+          <Link
+            className="photo-nav left"
+            to={`../photography/${photo.category}/${nextPhotoId}`}
+          >
             {' '}
             {'>'}{' '}
           </Link>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import PaginatedArticles from '../components/PaginatedArticles';
 import useSearch from '../components/hooks/useSearch';
-import Banner from '../components/Banner';
 
 const defaultTabsState = {
   general: false,
@@ -46,7 +45,7 @@ export default function AakPage() {
         >
           جميع
         </Link>
-        <Link
+        {/* <Link
           className={setActiveStateClassName('general')}
           to="/journalism/aak/general"
         >
@@ -57,7 +56,7 @@ export default function AakPage() {
           to="/journalism/aak/columns"
         >
           مقالات
-        </Link>
+        </Link> */}
         <Link
           className={setActiveStateClassName('hawajes')}
           to="/journalism/aak/hawajes"
@@ -76,7 +75,6 @@ export default function AakPage() {
 
   return (
     <main id="aak-page">
-      <Banner imgUrl={header} />
       <h1 className="page-title">أخبار الخليج</h1>
       <div className="aak-links-container">{renderLinks()}</div>
       <SearchComponent />

@@ -1,16 +1,24 @@
+import { Storage } from 'aws-amplify';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/logos/main-logo-droid-kufi.png';
+import logoTwo from '../assets/images/logos/main-logo-urdu.png';
+import logoTwoHorizontal from '../assets/images/logos/main-logo-urdu-two.png';
+import useScreenDimensions from '../components/hooks/useScreenDimensions';
 
 export default function Navbar() {
   const [menuClicked, setMenuClicked] = useState(false);
   const ref = useRef(null);
+
+  const { dimensions } = useScreenDimensions();
+
   useEffect(() => {
     const children =
       document.getElementsByClassName('navigation')[0].children.length;
     const height = ref.current.clientHeight + 'px';
     document.documentElement.style.setProperty('--children', children);
     document.documentElement.style.setProperty('--nav-height', height);
-  }, [document.clientHeight]);
+  }, [dimensions]);
 
   return (
     <nav ref={ref}>
@@ -42,7 +50,12 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/publications" onClick={() => setMenuClicked(false)}>
-            اصدارات ومؤلفات
+            اصدارات
+          </Link>
+        </li>
+        <li>
+          <Link to="/interviews" onClick={() => setMenuClicked(false)}>
+            مقابلات
           </Link>
         </li>
       </ul>
@@ -56,7 +69,12 @@ export default function Navbar() {
         <span></span>
       </div>
       <div role="heading" aria-level="1" className="header">
-        <Link to="/">عقيل سوار</Link>
+        <Link to="/">
+          <img
+            src={dimensions.width < 1200 ? logoTwoHorizontal : logoTwo}
+            alt="logo"
+          />
+        </Link>
       </div>
     </nav>
   );

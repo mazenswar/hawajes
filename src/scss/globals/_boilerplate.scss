@@ -23,3 +23,15 @@ body {
 	color: var(--dark-text-color);
 }
 
+.disabled {
+	color: #bababa;
+	pointer-events: none;
+}
+
+.minimized {
+	width: 35%
+}
+
+.maximized {
+	width: 80%
+}

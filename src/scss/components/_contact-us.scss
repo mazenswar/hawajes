@@ -1,0 +1,36 @@
+#contact-us-page {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 90%;
+        padding: 3%;
+        margin: 3% 0;
+        background-color: var(--tan);
+        section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 3% 0;
+            input {
+                width: clamp(250px, 50%, 300px);
+            }
+            textarea {
+                width: 90%;
+                height: clamp(100px, 30vh, 200px);
+            }
+        }
+        input[type=submit] {
+            background-color: var(--blackboard);
+            color: ivory;
+            padding: 0.5% 3%;
+            border: none;
+            transition: 0.8s;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

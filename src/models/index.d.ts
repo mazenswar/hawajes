@@ -6,6 +6,38 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerMawwal = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Mawwal, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly fullPath?: string | null;
+  readonly filename?: string | null;
+  readonly category?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyMawwal = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Mawwal, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly fullPath?: string | null;
+  readonly filename?: string | null;
+  readonly category?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Mawwal = LazyLoading extends LazyLoadingDisabled ? EagerMawwal : LazyMawwal
+
+export declare const Mawwal: (new (init: ModelInit<Mawwal>) => Mawwal) & {
+  copyOf(source: Mawwal, mutator: (draft: MutableModel<Mawwal>) => MutableModel<Mawwal> | void): Mawwal;
+}
+
 type EagerPhoto = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Photo, 'id'>;
@@ -14,6 +46,7 @@ type EagerPhoto = {
   readonly id: string;
   readonly filename?: string | null;
   readonly fullPath?: string | null;
+  readonly category?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -26,6 +59,7 @@ type LazyPhoto = {
   readonly id: string;
   readonly filename?: string | null;
   readonly fullPath?: string | null;
+  readonly category?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -42,18 +76,18 @@ type EagerArticle = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly publisherEN: string;
-  readonly publisherAR: string;
-  readonly categoryEN: string;
-  readonly categoryAR: string;
-  readonly date: string;
+  readonly publisherEN?: string | null;
+  readonly publisherAR?: string | null;
+  readonly categoryEN?: string | null;
+  readonly categoryAR?: string | null;
+  readonly date?: string | null;
   readonly year?: number | null;
   readonly month?: number | null;
   readonly day?: number | null;
-  readonly filename: string;
-  readonly fileType: string;
-  readonly parentPath: string;
-  readonly fullPath: string;
+  readonly filename?: string | null;
+  readonly fileType?: string | null;
+  readonly parentPath?: string | null;
+  readonly fullPath?: string | null;
   readonly title?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -65,18 +99,18 @@ type LazyArticle = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly publisherEN: string;
-  readonly publisherAR: string;
-  readonly categoryEN: string;
-  readonly categoryAR: string;
-  readonly date: string;
+  readonly publisherEN?: string | null;
+  readonly publisherAR?: string | null;
+  readonly categoryEN?: string | null;
+  readonly categoryAR?: string | null;
+  readonly date?: string | null;
   readonly year?: number | null;
   readonly month?: number | null;
   readonly day?: number | null;
-  readonly filename: string;
-  readonly fileType: string;
-  readonly parentPath: string;
-  readonly fullPath: string;
+  readonly filename?: string | null;
+  readonly fileType?: string | null;
+  readonly parentPath?: string | null;
+  readonly fullPath?: string | null;
   readonly title?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;

@@ -18,7 +18,6 @@ export default function ArticlePage() {
   const [isMaximized, setIsMaximized] = useState(false);
 
   useEffect(() => {
-    console.log(article.fileType);
     if (window.innerWidth < 600) {
       setIsMaximized(true);
     }

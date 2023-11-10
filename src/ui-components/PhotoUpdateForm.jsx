@@ -26,9 +26,11 @@ export default function PhotoUpdateForm(props) {
   const initialValues = {
     filename: "",
     fullPath: "",
+    category: "",
   };
   const [filename, setFilename] = React.useState(initialValues.filename);
   const [fullPath, setFullPath] = React.useState(initialValues.fullPath);
+  const [category, setCategory] = React.useState(initialValues.category);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = photoRecord
@@ -36,6 +38,7 @@ export default function PhotoUpdateForm(props) {
       : initialValues;
     setFilename(cleanValues.filename);
     setFullPath(cleanValues.fullPath);
+    setCategory(cleanValues.category);
     setErrors({});
   };
   const [photoRecord, setPhotoRecord] = React.useState(photoModelProp);
@@ -52,6 +55,7 @@ export default function PhotoUpdateForm(props) {
   const validations = {
     filename: [],
     fullPath: [],
+    category: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -81,6 +85,7 @@ export default function PhotoUpdateForm(props) {
         let modelFields = {
           filename,
           fullPath,
+          category,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -138,6 +143,7 @@ export default function PhotoUpdateForm(props) {
             const modelFields = {
               filename: value,
               fullPath,
+              category,
             };
             const result = onChange(modelFields);
             value = result?.filename ?? value;
@@ -163,6 +169,7 @@ export default function PhotoUpdateForm(props) {
             const modelFields = {
               filename,
               fullPath: value,
+              category,
             };
             const result = onChange(modelFields);
             value = result?.fullPath ?? value;
@@ -176,6 +183,32 @@ export default function PhotoUpdateForm(props) {
         errorMessage={errors.fullPath?.errorMessage}
         hasError={errors.fullPath?.hasError}
         {...getOverrideProps(overrides, "fullPath")}
+      ></TextField>
+      <TextField
+        label="Category"
+        isRequired={false}
+        isReadOnly={false}
+        value={category}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              filename,
+              fullPath,
+              category: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.category ?? value;
+          }
+          if (errors.category?.hasError) {
+            runValidationTasks("category", value);
+          }
+          setCategory(value);
+        }}
+        onBlur={() => runValidationTasks("category", category)}
+        errorMessage={errors.category?.errorMessage}
+        hasError={errors.category?.hasError}
+        {...getOverrideProps(overrides, "category")}
       ></TextField>
       <Flex
         justifyContent="space-between"

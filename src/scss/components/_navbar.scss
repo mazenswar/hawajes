@@ -18,7 +18,13 @@ nav {
 		align-items: center;
 		justify-content: center;
 		a, a:visited {
-			color: var(--nav-link-color);
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				height: clamp(40px, 80%, 100px);
+			}
 		}
 		font-size: clamp(u.rem(20), u.rem(35) + 2vh, u.rem(40));
 		font-weight: 800;
@@ -38,7 +44,7 @@ nav {
 			font-size: var(--font-size);
 			padding: var(--padding);
 			// padding: 100px;
-			color: var(--nav-link-color);
+			color: var(--blackboard);
 			a,
 			a:visited {
 				position: relative;
@@ -48,7 +54,7 @@ nav {
 					width: 0%;
 					height: 1.7px;
 					border-radius: 99px;
-					background: var(--nav-link-underline-color);
+					background: var(--tan);
 					position: absolute;
 					bottom: 0;
 					right: 0;
@@ -66,6 +72,7 @@ nav {
 	// menu
 
 	.menu {
+		
 		width: 22px;
 		height: 16px;
 		cursor: pointer;
@@ -79,7 +86,7 @@ nav {
 			width: 100%;
 			height: 2px;
 			border-radius: 99px;
-			background: #262626;
+			background: var(--blackboard);
 			transition: 0.3s ease;
 			transform-origin: left;
 		}
@@ -110,14 +117,13 @@ nav {
 		// background-color: #d264b6;
 
 		.header {
-			// color: var(--charcoal);
 			font-size: clamp(u.rem(10), u.rem(15) + 1.5vw, u.rem(35));
 		}
 		.menu {
 			display: flex;
+			
 		}
 		ul {
-			border: none;
 			--height: 0px;
 			transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 			flex-direction: column;
@@ -127,9 +133,10 @@ nav {
 			margin: 0;
 			height: var(--height);
 			top: var(--nav-height);
+			background-color: var(--tan);
 			// top: var(--nav-height);
 			li {
-				color: var(--charcoal);
+				color: var(--blackboard);
 				width: 100%;
 				text-align: center;
 				a {
@@ -138,6 +145,7 @@ nav {
 			}
 		}
 		ul.active {
+			border-bottom: 3px solid var(--blackboard);
 			--height: calc(
 				(((var(--padding) * 2) + (var(--font-size) * 1.5))) * var(--children) +
 					20px
@@ -146,4 +154,26 @@ nav {
 		}
 	}
 
+}
+
+
+@include u.breakpoint-down(small) {
+	nav {
+		.header {
+			a, a:visited {
+				img {
+					height: clamp(20px, 60%, 80px);
+				}
+			}
+		}
+		ul {
+			li {
+				a, a:visited {
+					&::after {
+						background: ivory;
+					}
+				}
+			}
+		}
+	}
 }

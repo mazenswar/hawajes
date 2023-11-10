@@ -55,8 +55,9 @@ h4 {
 p {
 	margin-top: 0;
 	font-size: clamp(u.rem(15), u.rem(9) + 1vw, u.rem(20));
+
 	// padding: u.rem(10);
-	// text-align: right;
+	text-align: justify;
 }
 
 
@@ -75,11 +76,13 @@ a:active {
 .link,
 .link:visited,
 .link:active {
+	color: inherit;
 	padding-bottom: 0.3vw;
-	// color: var(--link-color);
+	transition: 0.5s;
+	&:hover {color: #62b4ae};
 	margin: 2vw 0;
 	// font-weight: 600;
-	font-size: clamp(u.rem(10), u.rem(9) + 0.7vw, u.rem(20));
+	font-size: clamp(u.rem(10), u.rem(12) + 0.7vw, u.rem(20));
 	// font-style: italic;
 	// border-bottom: 1px solid;
 	overflow-wrap: break-word;

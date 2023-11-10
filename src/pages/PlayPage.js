@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 export default function PlayPage() {
@@ -73,13 +73,15 @@ export default function PlayPage() {
 
   return (
     <main id="play-page">
-      <h1 className="page-title">{play.nameAR}</h1>
-
-      {/* {renderCover()} */}
-      {renderVid()}
-      {renderDoc()}
-      {renderImages()}
-      {renderSongs()}
+      <h1 className="page-title">
+        {play.nameAR} ({play.year})
+      </h1>
+      <Suspense fallback={<div>Loading...</div>}>
+        {renderVid()}
+        {renderDoc()}
+        {renderImages()}
+        {renderSongs()}
+      </Suspense>
     </main>
   );
 }

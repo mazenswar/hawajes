@@ -1,7 +1,20 @@
-import { Storage, Amplify, DataStore } from 'aws-amplify';
-import { Article, Photo } from '../../models';
+import { Storage } from 'aws-amplify';
+import { Article, Mawwal, Photo } from '../../models';
+import { DataStore } from '@aws-amplify/datastore';
 
-// images
+// interviews
+
+async function interviewsLoader() {
+  const file = await Storage.get('interviews/Aqeel-Oral-History.mp4');
+  const interviews = [
+    {
+      file,
+      title: 'الذاكرة الشفهية',
+    },
+  ];
+
+  return interviews;
+}
 
 // HELPERS
 
@@ -22,12 +35,22 @@ function processStorageList(response) {
   return { files, folders };
 }
 
-/// LOADERS
+/////////////////////////////// TEST
+
+//////////////////////////////// LOADERS
+// function getHeader(page) {
+//   const headerBg = Storage.get('headers');
+//   const headerSm = Storage.get('logos/facebook.png');
+
+//   Promise.all([headerBg, headerSm]).then((results) => {
+//     return results;
+//   });
+// }
 
 async function landingPageLoader({ params }) {
-  const headshot = await Storage.get('headshots/landing.jpg');
-  const header = await Storage.get('headers/home-header.png');
-  return { headshot, header };
+  const headerBg = await Storage.get('headers/landing-header-bg.png');
+  const headerSm = await Storage.get('headers/landing-header-sm.png');
+  return { headerBg, headerSm };
 }
 
 async function journalismPageLoader({ params }) {
@@ -71,6 +94,7 @@ const plays = [
   {
     nameEN: 'afa',
     nameAR: 'أفا يا عبيد',
+    year: 1989,
     cover: false,
     doc: false,
     video: true,
@@ -80,6 +104,7 @@ const plays = [
   {
     nameEN: 'rajol',
     nameAR: 'رجل من عامة الناس',
+    year: 1984,
     cover: false,
     doc: true,
     video: false,
@@ -89,6 +114,7 @@ const plays = [
   {
     nameEN: 'baraha',
     nameAR: 'البراحة',
+    year: 1980,
     cover: true,
     doc: true,
     video: true,
@@ -98,15 +124,17 @@ const plays = [
   {
     nameEN: 'bint',
     nameAR: 'بنت النوخذة',
+    year: 1986,
     cover: true,
-    doc: false,
+    doc: true,
     video: true,
     images: true,
-    songs: false,
+    songs: true,
   },
   {
     nameEN: 'juwaira',
     nameAR: 'جويرة',
+    year: 1997,
     cover: false,
     doc: false,
     video: true,
@@ -116,6 +144,7 @@ const plays = [
   {
     nameEN: 'khamees',
     nameAR: 'خميس وجمعة',
+    year: 1989,
     cover: true,
     doc: false,
     video: true,
@@ -125,6 +154,7 @@ const plays = [
   {
     nameEN: 'rab',
     nameAR: 'ربع المكدة',
+    year: 2010,
     cover: true,
     doc: true,
     video: true,
@@ -134,6 +164,7 @@ const plays = [
   {
     nameEN: 'tafateef',
     nameAR: 'الطفاطيف',
+    year: 2016,
     cover: false,
     doc: false,
     video: false,
@@ -143,9 +174,20 @@ const plays = [
   {
     nameEN: 'gilgamesh',
     nameAR: 'شجرة الحياة',
+    year: 1900,
     cover: false,
     doc: true,
     video: false,
+    images: false,
+    songs: false,
+  },
+  {
+    nameEN: 'soug',
+    nameAR: 'سوق المقاصيص',
+    year: 1991,
+    cover: false,
+    doc: true,
+    video: true,
     images: false,
     songs: false,
   },
@@ -159,6 +201,7 @@ async function playLoader({ params }) {
     video: false,
     images: false,
     songs: false,
+    year: play.year,
   };
 
   if (play.cover) {
@@ -263,33 +306,33 @@ async function publicationLoader({ params }) {
 }
 
 async function photographyLoader({ params }) {
-  let photos = [];
-  try {
-    photos = await DataStore.query(Photo);
-    console.log(
-      'photos retrieved successfully!',
-      JSON.stringify(photos, null, 2)
-    );
-  } catch (error) {
-    console.log('Error retrieving posts', error);
-  }
-  const objects = [];
-  photos.forEach(async (photo) => {
-    const file = await Storage.get(photo.fullPath);
-    objects.push({ ...photo, file });
-  });
-
   // const { files } = processStorageList(await Storage.list('photography/'));
   // const list = [];
   // files.forEach(async (f) => {
   //   const file = await Storage.get(f.key);
   //   list.push({ ...f, file });
   // });
-  const headshot = await Storage.get('headshots/photography.jpg');
-  const header = await Storage.get('headers/photography-header.png');
-  return { headshot, header, list: objects };
+  const headerBg = await Storage.get('headers/photography-header-bg.jpg');
+  const headerSm = await Storage.get('headers/photography-header-sm.jpg');
+  return { headerBg, headerSm };
 }
 
+async function photographyCategoryLoader({ params }) {
+  let photos = [];
+  try {
+    photos = await DataStore.query(Photo, (p) =>
+      p.category.eq(params.category)
+    );
+    console.log('photos retrieved successfully!');
+  } catch (error) {
+    console.log('Error retrieving posts', error);
+  }
+
+  return {
+    list: photos,
+    category: params.category,
+  };
+}
 async function photoLoader({ params }) {
   // const key = params.key;
   // const file = await Storage.get('photography/' + key + '.jpg');
@@ -391,16 +434,59 @@ async function mawwalMainLoader({ params }) {
   return { header };
 }
 
-async function mawwalLoader({ params }) {
-  const response = await Storage.list('mawwal/' + params.category);
-  const { files } = processStorageList(response);
-  const list = [];
-  files.forEach(async (f) => {
-    const file = await Storage.get(f.key);
-    list.push(file);
-  });
+async function getFile(key) {
+  try {
+    let path = key.replace('/', '');
+    const file = await Storage.get(path);
+    return file;
+  } catch (error) {
+    console.log('Error ====> ', error);
+  }
+}
 
-  return { list, category: params.category };
+async function mawwalLoader({ params }) {
+  let mawwals = [];
+  try {
+    mawwals = await DataStore.query(Mawwal, (p) =>
+      p.category.eq(params.category)
+    );
+  } catch (error) {
+    console.log('Error retrieving posts', error);
+  }
+
+  return {
+    list: mawwals,
+    category: params.category,
+  };
+}
+
+async function mawwalShowLoader({ params }) {
+  const { id } = params;
+  const mawwals = await DataStore.query(Mawwal);
+  const mawwal = mawwals.find((a) => a.id === id);
+  const mawwalIndex = mawwals.indexOf(mawwal);
+  let key = mawwal.fullPath.replace('/', '');
+  key = key.replaceAll("'", '-');
+  const file = await Storage.get(key);
+  const lastMawwalId = mawwals.length;
+  const firstMawwalId = 1;
+  const mawwalRange = [firstMawwalId, lastMawwalId];
+
+  const prevMawwalId = mawwals[mawwalIndex - 1]
+    ? mawwals[mawwalIndex - 1].id
+    : null;
+  const nextMawwalId = mawwals[mawwalIndex + 1]
+    ? mawwals[mawwalIndex + 1].id
+    : null;
+  return {
+    mawwal,
+    mawwalRange,
+    nextMawwalId,
+    prevMawwalId,
+    mawwalIndex,
+    file,
+    id,
+  };
 }
 
 ///////////////////////
@@ -427,12 +513,15 @@ const loaders = {
   publicationsLoader,
   publicationLoader,
   photographyLoader,
+  photographyCategoryLoader,
   alayamLoader,
   publisherPageLoader,
   mawwalLoader,
   photoLoader,
   landingPageLoader,
   mawwalMainLoader,
+  mawwalShowLoader,
+  interviewsLoader,
 };
 
 export default loaders;

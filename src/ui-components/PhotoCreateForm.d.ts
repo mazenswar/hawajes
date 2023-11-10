@@ -15,16 +15,19 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type PhotoCreateFormInputValues = {
     filename?: string;
     fullPath?: string;
+    category?: string;
 };
 export declare type PhotoCreateFormValidationValues = {
     filename?: ValidationFunction<string>;
     fullPath?: ValidationFunction<string>;
+    category?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PhotoCreateFormOverridesProps = {
     PhotoCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     filename?: PrimitiveOverrideProps<TextFieldProps>;
     fullPath?: PrimitiveOverrideProps<TextFieldProps>;
+    category?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type PhotoCreateFormProps = React.PropsWithChildren<{
     overrides?: PhotoCreateFormOverridesProps | undefined | null;
