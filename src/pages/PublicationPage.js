@@ -16,7 +16,7 @@ export default function PublicationPage() {
     if (isMobile) {
       window.location.replace(file);
     }
-  }, [isMobile, file]);
+  }, [file]);
 
   return (
     <main>
