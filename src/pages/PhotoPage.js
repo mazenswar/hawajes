@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { Suspense, useEffect, useState } from 'react';
+import { Await, Link, useLoaderData } from 'react-router-dom';
 import { translateDateToArabicString } from '../util/helpers';
+import { ThreeCircles } from 'react-loader-spinner';
 
 const imgExtensions = ['png', 'PNG', 'jpg', 'JPG', 'JPEG', 'jpeg'];
 const pdfExtensions = ['pdf', 'PDF'];
@@ -75,7 +76,33 @@ export default function PhotoPage() {
 
   return (
     <main id="photo-page">
-      <img src={file} alt={id} />
+      <Suspense
+        fallback={
+          <main className="flex-list-y">
+            <ThreeCircles
+              height="100"
+              width="100"
+              color="#565656"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="three-circles-rotating"
+              outerCircleColor=""
+              innerCircleColor=""
+              middleCircleColor=""
+            />
+          </main>
+        }
+      >
+        <Await resolve={file} errorElement={'Error loading Article'}>
+          {(f) => (
+            <section className="photo-sec">
+              <img src={f} alt={id} />
+            </section>
+          )}
+        </Await>
+      </Suspense>
+
       <div className="photo-page-header">
         <div className="photo-nav-buttons">
           {renderChangePageButton(true)}

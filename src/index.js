@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/style.scss';
 import reportWebVitals from './reportWebVitals';
-import router from './routing/router';
-import { RouterProvider } from 'react-router-dom';
 import awsmobile from './aws-exports';
 import { Amplify } from 'aws-amplify';
+import App from './App';
 Amplify.configure(awsmobile);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
 

@@ -4,6 +4,26 @@
 $videoWidth: 70%;
 
 #play-page {
+    .video-container {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 10%;
+        width: clamp(200px, 80%, 900px);
+        padding-top: 56.25%;
+        /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+            
+        /* Then style the iframe to fit in the container div with full height and width */
+        .youtube-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
     .pdf-section {
         width: 100%;
         background-color: var(--blackboard);
@@ -53,6 +73,27 @@ $videoWidth: 70%;
         .page-title {
             color: ivory
         }
+    }
+
+    .pdf-section.mobile {
+            padding: 15%;
+            width: 100%;
+            a {
+                padding: 5%;
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                background-color: var(--tan);
+                color: var(--blackboard);
+                border-radius: 20px;                
+                img {
+                    width: 7%;
+                }
+                h2 {
+                    margin: 0;
+                }
+            }
     }
 }
 

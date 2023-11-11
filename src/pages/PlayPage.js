@@ -1,12 +1,8 @@
 import React, { Suspense } from 'react';
 import { useLoaderData } from 'react-router-dom';
-
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
+import externalLinkIcon from '../assets/images/icons/external.png';
+import YoutubePlayer from '../components/YoutubePlayer';
 
 export default function PlayPage() {
   const { video, images, songs, doc, cover, play } = useLoaderData();
@@ -15,12 +11,11 @@ export default function PlayPage() {
     if (doc) {
       if (isMobile) {
         return (
-          <section className="pdf-section">
-            <h1 className="page-title">
-              <a href={doc} target="_blank" rel="noreferrer">
-                النص المسرحي
-              </a>
-            </h1>
+          <section className="pdf-section mobile">
+            <a href={doc} target="_blank" rel="noreferrer">
+              <img src={externalLinkIcon} alt="external link icon" />
+              <h2>النص المسرحي</h2>
+            </a>
           </section>
         );
       } else {
@@ -45,9 +40,11 @@ export default function PlayPage() {
   function renderVid() {
     if (video) {
       return (
-        <video controls>
-          <source src={video} type="video/mp4" />
-        </video>
+        <YoutubePlayer
+          videoUrl={
+            'https://www.youtube.com/embed/f44hjcUwF_U?si=KTCJbXlIffbx5Zbh'
+          }
+        />
       );
     }
   }
@@ -71,7 +68,6 @@ export default function PlayPage() {
     }
   }
   function renderSongs() {
-    console.log(songs);
     if (songs) {
       return (
         <section className="song-section">

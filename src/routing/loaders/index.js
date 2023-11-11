@@ -1,6 +1,7 @@
 import { Storage } from 'aws-amplify';
 import { Article, Mawwal, Photo } from '../../models';
 import { DataStore } from '@aws-amplify/datastore';
+import { defer } from 'react-router-dom';
 
 // interviews
 
@@ -68,7 +69,7 @@ async function articlePageLoader({ params }) {
   const articleIndex = articles.indexOf(article);
   const filepath = article.fullPath.slice(1);
   const key = filepath.replace(' ', '-');
-  const file = await Storage.get(key);
+  const file = Storage.get(key);
   const lastArticleId = articles.length;
   const firstArticleId = 1;
   const articleRange = [firstArticleId, lastArticleId];
@@ -79,14 +80,14 @@ async function articlePageLoader({ params }) {
   const nextArticleId = articles[articleIndex + 1]
     ? articles[articleIndex + 1].id
     : null;
-  return {
+  return defer({
     article,
     articleRange,
     nextArticleId,
     prevArticleId,
     articleIndex,
     file,
-  };
+  });
 }
 
 ////////////////////////////////////// THEATRE      ///////////////////////
@@ -253,9 +254,8 @@ async function alayamLoader({ params }) {
     articles = await DataStore.query(Article, (c) =>
       c.publisherEN.eq('alayam')
     );
-    console.log(articles.length + ' articles retrieved successfully!');
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   return articles;
@@ -270,16 +270,11 @@ async function aakLoader({ params }) {
   };
   let articles = [];
   const header = await Storage.get('headers/journalism-header.png');
-  console.log(header);
 
   try {
     articles = await DataStore.query(Article, (c) => c.publisherEN.eq('aak'));
-    console.log(
-      'aak articles retrieved successfully!',
-      JSON.stringify(articles, null, 2)
-    );
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   articles.forEach((a) => {
@@ -301,8 +296,8 @@ async function publicationsLoader({ params }) {
 
 async function publicationLoader({ params }) {
   // return publications.find((p) => p.id === params.id);
-  const response = await Storage.get('publications/' + params.name + '.pdf');
-  return { name: params.name, file: response };
+  const response = Storage.get('publications/' + params.name + '.pdf');
+  return defer({ name: params.name, file: response });
 }
 
 async function photographyLoader({ params }) {
@@ -323,9 +318,8 @@ async function photographyCategoryLoader({ params }) {
     photos = await DataStore.query(Photo, (p) =>
       p.category.eq(params.category)
     );
-    console.log('photos retrieved successfully!');
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   return {
@@ -342,14 +336,14 @@ async function photoLoader({ params }) {
   const photos = await DataStore.query(Photo);
   const photo = photos.find((a) => a.id === id);
   const photoIndex = photos.indexOf(photo);
-  const file = await Storage.get(photo.fullPath);
+  const file = Storage.get(photo.fullPath);
   const lastPhotoId = photos.length;
   const firstPhotoId = 1;
   const photoRange = [firstPhotoId, lastPhotoId];
 
   const prevPhotoId = photos[photoIndex - 1] ? photos[photoIndex - 1].id : null;
   const nextPhotoId = photos[photoIndex + 1] ? photos[photoIndex + 1].id : null;
-  return {
+  return defer({
     photo,
     photoRange,
     nextPhotoId,
@@ -357,7 +351,7 @@ async function photoLoader({ params }) {
     photoIndex,
     file,
     id,
-  };
+  });
 }
 
 async function alwatanLoader() {
@@ -366,12 +360,8 @@ async function alwatanLoader() {
     articles = await DataStore.query(Article, (c) =>
       c.publisherEN.eq('alwatan')
     );
-    console.log(
-      'articles retrieved successfully!',
-      JSON.stringify(articles, null, 2)
-    );
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   return articles;
@@ -381,12 +371,8 @@ async function sadaLoader() {
   let articles = [];
   try {
     articles = await DataStore.query(Article, (c) => c.publisherEN.eq('sada'));
-    console.log(
-      'articles retrieved successfully!',
-      JSON.stringify(articles, null, 2)
-    );
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   return articles;
@@ -398,12 +384,8 @@ async function panoramaLoader() {
     articles = await DataStore.query(Article, (c) =>
       c.publisherEN.eq('panorama')
     );
-    console.log(
-      'articles retrieved successfully!',
-      JSON.stringify(articles, null, 2)
-    );
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   return articles;
@@ -434,16 +416,6 @@ async function mawwalMainLoader({ params }) {
   return { header };
 }
 
-async function getFile(key) {
-  try {
-    let path = key.replace('/', '');
-    const file = await Storage.get(path);
-    return file;
-  } catch (error) {
-    console.log('Error ====> ', error);
-  }
-}
-
 async function mawwalLoader({ params }) {
   let mawwals = [];
   try {
@@ -451,7 +423,7 @@ async function mawwalLoader({ params }) {
       p.category.eq(params.category)
     );
   } catch (error) {
-    console.log('Error retrieving posts', error);
+    console.log('Error retrieving data ', error);
   }
 
   return {

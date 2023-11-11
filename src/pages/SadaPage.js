@@ -4,7 +4,6 @@ import PaginatedArticles from '../components/PaginatedArticles';
 
 function SadaPage() {
   const { articles, publisher, header } = useLoaderData();
-  console.log(articles);
   const [list, setList] = useState([]);
 
   useEffect(() => {

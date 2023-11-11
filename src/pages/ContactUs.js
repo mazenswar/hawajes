@@ -11,11 +11,9 @@ function ContactUs() {
 
     emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
       (result) => {
-        console.log(result.text);
         navigate('/contact-us-success');
       },
       (error) => {
-        console.log(error.text);
         navigate('/contact-us-error');
       }
     );

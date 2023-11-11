@@ -5,7 +5,7 @@ import useSearch from '../components/hooks/useSearch';
 
 export default function AlwatanPage() {
   const { articles, publisher, header } = useLoaderData();
-  console.log(articles);
+  
   const [list, setList] = useState([]);
   const { SearchComponent, filteredList, filterItems } = useSearch(list);
 

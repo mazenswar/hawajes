@@ -141,3 +141,13 @@ video {
 	width: 100vw;
 	height: 100vh;
 }
+
+.tba-section {
+	width: 100%;
+	padding: clamp(100px, 10%,200px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--tan);
+	color: ivory;
+}

@@ -6,8 +6,8 @@ function TheatrePage() {
   const { plays, header, headshot } = useLoaderData();
   return (
     <main>
-      <div className="theatre-tiles-container flex-list-x">
-        <h1 className="page-title">مسرحيات</h1>
+      <h1 className="page-title">مسرحيات</h1>
+      <section className="theatre-tiles-container flex-list-x">
         {plays.map((p) => (
           <Link
             key={p.nameEN}
@@ -17,7 +17,11 @@ function TheatrePage() {
             {p.nameAR}
           </Link>
         ))}
-      </div>
+      </section>
+      <h1 className="page-title">أعمال لم تنفذ</h1>
+      <section className="tba-section">
+        <h2> قيد الإنشاء</h2>
+      </section>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 
 #photo-page {
- 
+    // min-height: 100vh;
 
     .photo-page-header {
             // padding: 5% 0;
@@ -46,12 +46,19 @@
     
             }
         }
-    img {
-        width: clamp(200px, 80%, 600px);
-        height: auto;
-        margin: 5%;
-        
-    }
+        .photo-sec {
+            width: 100%;
+            min-height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                    width: clamp(200px, 80%, 600px);
+                    height: auto;
+                    margin: 5%;
+                }
+        }
+    
 }
 
 .photo-section {

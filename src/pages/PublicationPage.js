@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
-import { useLoaderData } from 'react-router-dom';
+import { Await, useLoaderData } from 'react-router-dom';
+import { ThreeCircles } from 'react-loader-spinner';
 
 export default function PublicationPage() {
   const { file, name } = useLoaderData();
@@ -24,20 +25,35 @@ export default function PublicationPage() {
       {isMobile ? null : (
         <Suspense
           fallback={
-            <div>
-              <h1>Loading...</h1>
-            </div>
+            <main className="flex-list-y">
+              <ThreeCircles
+                height="100"
+                width="100"
+                color="#565656"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="three-circles-rotating"
+                outerCircleColor=""
+                innerCircleColor=""
+                middleCircleColor=""
+              />
+            </main>
           }
         >
-          <object
-            data={file}
-            type="application/pdf"
-            className="pdf-viewer"
-            width={'80%'}
-            height={'400px'}
-          >
-            <p>حدث خطأ أثناء تحميل الملف، نرجوا المحاولة مجددًا بعد قليل</p>
-          </object>
+          <Await resolve={file} errorElement={'Error loading Article'}>
+            {(f) => (
+              <object
+                data={f}
+                type="application/pdf"
+                className="pdf-viewer"
+                width={'80%'}
+                height={'400px'}
+              >
+                <p>حدث خطأ أثناء تحميل الملف، نرجوا المحاولة مجددًا بعد قليل</p>
+              </object>
+            )}
+          </Await>
         </Suspense>
       )}
     </main>

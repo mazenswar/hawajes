@@ -4,13 +4,14 @@ import pages from '../pages';
 import Navbar from './Navbar';
 import loaders from './loaders';
 import Footer from '../components/Footer';
-import ScrollToTop from '../components/ScrollToTop';
+import useScrollToTop from '../components/hooks/useScrollToTop';
 
 function NavbarWrapper() {
+  useScrollToTop();
+
   return (
     <>
       <Navbar />
-      <ScrollToTop />
       <Outlet />
       <Footer />
     </>

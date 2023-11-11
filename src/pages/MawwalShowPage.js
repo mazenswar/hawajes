@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 function MawwalShowPage() {
   const {
@@ -68,6 +68,7 @@ function MawwalShowPage() {
   }
   return (
     <main id="mawwal-page">
+      <ScrollRestoration />
       <img className={'show-img'} src={file} alt={id} />
       <div className="mawwal-page-header">
         <div className="mawwal-nav-buttons">
