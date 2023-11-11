@@ -3,6 +3,12 @@
 
 $videoWidth: 70%;
 
+#theatre-page {
+    .publishers-container {
+        color: var(--blackboard);
+    }
+}
+
 #play-page {
     .video-container {
         position: relative;
@@ -55,15 +61,20 @@ $videoWidth: 70%;
     
     .song-section{
         background: var(--tan);
+        width: 100%;
         .page-title {
             color: var(--blackboard);
             text-decoration-color: ivory;
         }
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
         flex-wrap: wrap;
         audio {
             margin: 2%;
+            width: clamp(200px, 80%, 600px);
         }
         padding-bottom: 15%;
     }
@@ -106,10 +117,17 @@ $videoWidth: 70%;
     width: 100%;
     margin: auto;
     padding: 10%;
-    a {
-        $size: clamp(200px, 20vw, 500px);
+    .box-link, .box-link:visited, .box-link:active {
+        $size: clamp(200px, 30vw, 500px);
         height: $size;
         width: $size;
+        color: var(--blackboard);
+        border-color: var(--blackboard);
+        &:hover {
+                border-radius: 100;
+                background-color: var(--blackboard);
+                color: var(--tan);
+            }
     }
    
     
@@ -117,10 +135,12 @@ $videoWidth: 70%;
 
 @include u.breakpoint-down(small) {
     .theatre-tiles-container {
-        a {
+        .box-link, .box-link:visited, .box-link:active {
             width: 100%;
             &:hover {
                 border-radius: 0;
+                background-color: var(--blackboard);
+                color: var(--tan);
             }
         }
 

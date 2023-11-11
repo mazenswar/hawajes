@@ -38,14 +38,8 @@ export default function PlayPage() {
   }
 
   function renderVid() {
-    if (video) {
-      return (
-        <YoutubePlayer
-          videoUrl={
-            'https://www.youtube.com/embed/f44hjcUwF_U?si=KTCJbXlIffbx5Zbh'
-          }
-        />
-      );
+    if (video.length > 0) {
+      return <YoutubePlayer videoUrl={video} />;
     }
   }
 

@@ -4,15 +4,14 @@ import { useLoaderData } from 'react-router';
 
 import { Link } from 'react-router-dom';
 import useScreenDimensions from '../components/hooks/useScreenDimensions';
+import PageHeader from '../components/PageHeader';
 function PhotographyPage() {
   const { headerSm, headerBg } = useLoaderData();
   const { dimensions } = useScreenDimensions();
 
   return (
     <main id="photography-page">
-      <section className="page-header">
-        <img src={dimensions.width < 500 ? headerSm : headerBg} alt="header" />
-      </section>
+      <PageHeader page="photography" />
       <div className="publishers-container">
         <Link className="box-link flex-list-y" to="art">
           لقطات فنية

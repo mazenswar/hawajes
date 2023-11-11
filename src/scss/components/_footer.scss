@@ -1,7 +1,7 @@
 @use '../util/' as u;
 
 footer {
-    
+    border-top: 10px solid var(--tan);
     width: 100%;
     background-color: var(--blackboard);
     color: ivory;

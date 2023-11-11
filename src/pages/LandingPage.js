@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Link, useLoaderData } from 'react-router-dom';
 import useScreenDimensions from '../components/hooks/useScreenDimensions';
+import PageHeader from '../components/PageHeader';
 
 function LandingPage() {
   // async function getArticles() {
@@ -10,9 +11,7 @@ function LandingPage() {
 
   return (
     <main id="landing-page">
-      <section className="page-header">
-        <img src={dimensions.width < 500 ? headerSm : headerBg} alt="header" />
-      </section>
+      <PageHeader page="landing" />
       <section className="intro">
         <p className="linebreak">{landingParagraphOne}</p>
         <p className="linebreak">{landingParagraphTwo}</p>

@@ -12,10 +12,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--tan);
+    // background-color: var(--tan);
+    background-color: var(--blackboard);
+
 }
-.box-link {
-    $size: clamp(250px,20vw, 1000px);
+.box-link, .box-link:visited, .box-link:active {
+    $size: clamp(250px,25vw, 1000px);
     margin: 3%;
     width: $size;
     height: $size;
@@ -23,13 +25,17 @@
     
 
     // background-color: red;
-    color: var(--blackboard);
-    border: 3px solid var(--blackboard);
+    border: 3px solid var(--tan);
+    color: var(--tan);
+    // color: var(--blackboard);
+    // border: 3px solid var(--blackboard);
     transition: 0.6s;
     &:hover {
         border-radius: 100%;
-        background-color: var(--blackboard);
-        color:  var(--ivory);
+        // background-color: var(--blackboard);
+        // color:  var(--ivory);
+        background-color: var(--tan);
+        color:  var(--blackboard);
     }
 }
 

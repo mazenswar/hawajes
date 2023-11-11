@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { Link, useLoaderData } from 'react-router-dom';
+import PageHeader from '../components/PageHeader';
 
 function PublicationsPage() {
   const { header } = useLoaderData();
   return (
     <main>
+      <PageHeader page="publications" />
       <h1 className="page-title">اصدارات ومؤلفات</h1>
 
       <h2 className="page-title">مواويل</h2>
