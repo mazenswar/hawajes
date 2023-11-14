@@ -6,11 +6,10 @@ import { defer } from 'react-router-dom';
 // interviews
 
 async function interviewsLoader() {
-  const file = await Storage.get('interviews/Aqeel-Oral-History.mp4');
   const interviews = [
     {
-      file,
-      title: 'الذاكرة الشفهية',
+      file: 'https://www.youtube.com/embed/mkMBu_hLKK8?si=orxjC0puDWA2QTgr',
+      title: 'التاريخ الشفهي',
     },
   ];
 
@@ -108,7 +107,7 @@ const plays = [
     year: '١٩٨٤',
     cover: false,
     doc: true,
-    video: '',
+    video: 'https://www.youtube.com/embed/WzusIwUV7C4?si=Mcp2K93EBxrL6HcF',
     images: true,
     songs: false,
   },
@@ -249,8 +248,12 @@ async function alayamLoader({ params }) {
   let articles = [];
 
   try {
-    articles = await DataStore.query(Article, (c) =>
-      c.publisherEN.eq('alayam')
+    articles = await DataStore.query(
+      Article,
+      (c) => c.publisherEN.eq('alayam'),
+      {
+        sort: (s) => s.date('DESCENDING'),
+      }
     );
   } catch (error) {
     console.log('Error retrieving data ', error);
@@ -270,7 +273,9 @@ async function aakLoader({ params }) {
   const header = await Storage.get('headers/journalism-header.png');
 
   try {
-    articles = await DataStore.query(Article, (c) => c.publisherEN.eq('aak'));
+    articles = await DataStore.query(Article, (c) => c.publisherEN.eq('aak'), {
+      sort: (s) => s.date('DESCENDING'),
+    });
   } catch (error) {
     console.log('Error retrieving data ', error);
   }
@@ -355,8 +360,12 @@ async function photoLoader({ params }) {
 async function alwatanLoader() {
   let articles = [];
   try {
-    articles = await DataStore.query(Article, (c) =>
-      c.publisherEN.eq('alwatan')
+    articles = await DataStore.query(
+      Article,
+      (c) => c.publisherEN.eq('alwatan'),
+      {
+        sort: (s) => s.date('DESCENDING'),
+      }
     );
   } catch (error) {
     console.log('Error retrieving data ', error);
@@ -368,7 +377,9 @@ async function alwatanLoader() {
 async function sadaLoader() {
   let articles = [];
   try {
-    articles = await DataStore.query(Article, (c) => c.publisherEN.eq('sada'));
+    articles = await DataStore.query(Article, (c) => c.publisherEN.eq('sada'), {
+      sort: (s) => s.date('DESCENDING'),
+    });
   } catch (error) {
     console.log('Error retrieving data ', error);
   }
@@ -379,8 +390,12 @@ async function sadaLoader() {
 async function panoramaLoader() {
   let articles = [];
   try {
-    articles = await DataStore.query(Article, (c) =>
-      c.publisherEN.eq('panorama')
+    articles = await DataStore.query(
+      Article,
+      (c) => c.publisherEN.eq('panorama'),
+      {
+        sort: (s) => s.date('DESCENDING'),
+      }
     );
   } catch (error) {
     console.log('Error retrieving data ', error);

@@ -138,7 +138,7 @@ export default function ArticlePage() {
       <div className="article-page-header">
         <p>
           نشر في {article.publisherAR}، &nbsp;
-          {translateDateToArabicString(article.date)}
+          {translateDateToArabicString(article.date, article.publisherEN)}
         </p>
         <div className="article-nav-buttons">
           {renderChangePageButton(true)}

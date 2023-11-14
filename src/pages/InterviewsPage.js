@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import YoutubePlayer from '../components/YoutubePlayer';
 
 function InterviewsPage() {
   const interviews = useLoaderData();
@@ -11,12 +12,13 @@ function InterviewsPage() {
         return (
           <section className="play-section" key={i.title}>
             <h2>{i.title}</h2>
-            <video controls>
-              <source src={i.file} type="video/mp4" />
-            </video>
+            <YoutubePlayer videoUrl={i.file} />
           </section>
         );
       })}
+      <section className="tba-section">
+        <h2> قيد الإنشاء</h2>
+      </section>
     </main>
   );
 }
