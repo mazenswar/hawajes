@@ -11,6 +11,14 @@ async function interviewsLoader() {
       file: 'https://www.youtube.com/embed/mkMBu_hLKK8?si=orxjC0puDWA2QTgr',
       title: 'التاريخ الشفهي',
     },
+    {
+      file: 'https://www.youtube.com/embed/H77ZQLzjU-A?si=nG913kVUoYCTn4N9',
+      title: 'ندوة الابحار مع عقيل سوار - برنامج ملفات عربية',
+    },
+    {
+      file: 'https://www.youtube.com/embed/geOOpkqA_Lc?si=g066nlE1mJymChJ4',
+      title: 'لقاء الجمعة مع ابراهيم بشمي (١٩٩٦)',
+    },
   ];
 
   return interviews;
