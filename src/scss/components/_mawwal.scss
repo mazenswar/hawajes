@@ -2,6 +2,15 @@
 #mawwal-list-page {
     #paginated-container {
         background-color: var(--blackboard);
+        ul {
+            background-color: ivory;
+            .page-link,
+                a {
+                    color: var(--blackboard);
+                }
+            
+                
+        }
     }
 }
 

@@ -13,11 +13,11 @@ async function interviewsLoader() {
     },
     {
       file: 'https://www.youtube.com/embed/H77ZQLzjU-A?si=nG913kVUoYCTn4N9',
-      title: 'ندوة الابحار مع عقيل سوار - برنامج ملفات عربية',
+      title: 'ندوة الإبحار مع عقيل سوار - برنامج ملفات عربية',
     },
     {
       file: 'https://www.youtube.com/embed/geOOpkqA_Lc?si=g066nlE1mJymChJ4',
-      title: 'لقاء الجمعة مع ابراهيم بشمي (١٩٩٦)',
+      title: 'لقاء الجمعة مع إبراهيم بشمي (١٩٩٦)',
     },
   ];
 

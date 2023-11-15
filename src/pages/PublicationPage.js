@@ -20,7 +20,7 @@ export default function PublicationPage() {
     } else {
       return (
         <object
-          data={resolvedFile}
+          data={resolvedFile + '#view=FitB'}
           type="application/pdf"
           className="pdf-viewer"
           width={'80%'}
