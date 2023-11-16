@@ -164,7 +164,7 @@ const plays = [
     nameAR: 'الطفاطيف',
     year: '٢٠١٦',
     cover: false,
-    doc: false,
+    doc: true,
     video: '',
     images: true,
     songs: true,
@@ -268,26 +268,26 @@ async function aakLoader({ params }) {
     hawajes: [],
     hawamesh: [],
     general: [],
-    columns: [],
+    articles: [],
   };
-  let articles = [];
+  let objects = [];
 
   try {
-    articles = await DataStore.query(Article, (c) => c.publisherEN.eq('aak'), {
+    objects = await DataStore.query(Article, (c) => c.publisherEN.eq('aak'), {
       sort: (s) => s.date('ASCENDING'),
     });
   } catch (error) {
     console.log('Error retrieving data ', error);
   }
 
-  articles.forEach((a) => {
+  objects.forEach((a) => {
     articlesByCategory[a.categoryEN].push(a);
   });
 
   return {
     category: params.category || '',
     articlesByCategory,
-    allArticles: articles,
+    allArticles: objects,
   };
 }
 

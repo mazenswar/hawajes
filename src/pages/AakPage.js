@@ -7,7 +7,7 @@ const defaultTabsState = {
   general: false,
   hawajes: false,
   hawamesh: false,
-  columns: false,
+  articles: false,
   all: false,
 };
 export default function AakPage() {
@@ -45,18 +45,18 @@ export default function AakPage() {
         >
           جميع
         </Link>
-        {/* <Link
+        <Link
           className={setActiveStateClassName('general')}
           to="/journalism/aak/general"
         >
           عام
         </Link>
         <Link
-          className={setActiveStateClassName('columns')}
-          to="/journalism/aak/columns"
+          className={setActiveStateClassName('articles')}
+          to="/journalism/aak/articles"
         >
           مقالات
-        </Link> */}
+        </Link>
         <Link
           className={setActiveStateClassName('hawajes')}
           to="/journalism/aak/hawajes"

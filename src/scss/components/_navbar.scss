@@ -149,7 +149,7 @@ nav {
 			}
 		}
 		ul.active {
-			border-bottom: 3px solid var(--blackboard);
+			border-bottom: 10px solid var(--tan);
 			--height: calc(
 				(((var(--padding) * 2) + (var(--font-size) * 1.5))) * var(--children) +
 					20px
