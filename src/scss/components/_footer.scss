@@ -29,9 +29,9 @@ footer {
     .sm-icons, .contact-us-footer {
         a, a:visited {
             color: var(--blackboard);
+            margin: 10px;
             img {
                 width: clamp(40px, 3vw, 80px);
-                margin: 10px;
             }
         }
         

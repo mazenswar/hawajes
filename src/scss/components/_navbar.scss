@@ -13,7 +13,9 @@ nav {
 	// background-color: transparent;
 	.header {
 		// padding: clamp(u.rem(20), u.rem(35) + 2vh, u.rem(40));
+		// background-color: red;
 		height: 100%;
+		// width: 20%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -24,6 +26,7 @@ nav {
 			align-items: center;
 			img {
 				height: clamp(40px, 80%, 100px);
+				// width: 100%;
 			}
 		}
 		font-size: clamp(u.rem(20), u.rem(35) + 2vh, u.rem(40));

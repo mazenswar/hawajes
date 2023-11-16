@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/logos/main-logo-droid-kufi.png';
 import logoTwo from '../assets/images/logos/main-logo-urdu.png';
 import logoTwoHorizontal from '../assets/images/logos/main-logo-urdu-two.png';
+import logoOneBg from '../assets/images/logos/main-logo-1Bg.png';
+import logoOneMd from '../assets/images/logos/main-logo-1Md.png';
+import logoOneSm from '../assets/images/logos/main-logo-1Sm.png';
 import useScreenDimensions from '../components/hooks/useScreenDimensions';
 
 export default function Navbar() {
@@ -74,6 +77,10 @@ export default function Navbar() {
             src={dimensions.width < 1200 ? logoTwoHorizontal : logoTwo}
             alt="logo"
           />
+          {/* <img
+            src={dimensions.width < 1200 ? logoOneBg : logoOneBg}
+            alt="logo"
+          /> */}
         </Link>
       </div>
     </nav>

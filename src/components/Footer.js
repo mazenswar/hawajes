@@ -1,8 +1,10 @@
 import React from 'react';
 import instagramIcon from '../assets/images/icons/instagram.png';
-import twitterIcon from '../assets/images/icons/twitter.png';
+
+import xIcon from '../assets/images/icons/x.png';
 import facebookIcon from '../assets/images/icons/facebook.png';
 import emailIcon from '../assets/images/icons/email.png';
+import contactIcon from '../assets/images/icons/contact.png';
 
 function Footer() {
   return (
@@ -11,7 +13,7 @@ function Footer() {
         <div className="contact-us-footer">
           <span>تواصلوا معنا</span>
           <a href="/contact-us">
-            <img src={emailIcon} alt="email icon" />
+            <img src={contactIcon} alt="email icon" />
           </a>
         </div>
         <div className="sm-section">
@@ -29,7 +31,7 @@ function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <img src={twitterIcon} alt="twitter icon" />
+              <img src={xIcon} alt="twitter icon" />
             </a>
             <a
               href="https://www.facebook.com/aQeel.swar/"

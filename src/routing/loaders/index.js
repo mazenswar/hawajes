@@ -187,7 +187,7 @@ const plays = [
     doc: true,
     video: 'https://www.youtube.com/embed/s7zgkmQq2dg?si=k7k2CzoLYeS2C1MZ',
     images: true,
-    songs: false,
+    songs: true,
   },
 ];
 
@@ -212,7 +212,9 @@ async function playLoader({ params }) {
   }
 
   if (play.images) {
-    const awsList = await Storage.list('plays/' + params.key + '/images');
+    const awsList = await Storage.list('plays/' + params.key + '/images', {
+      pageSize: 100,
+    });
     const { files } = processStorageList(awsList);
     const list = [];
     files.forEach(async (f) => {
@@ -222,7 +224,9 @@ async function playLoader({ params }) {
     data['images'] = list;
   }
   if (play.songs) {
-    const awsList = await Storage.list('plays/' + params.key + '/songs');
+    const awsList = await Storage.list('plays/' + params.key + '/songs', {
+      pageSize: 100,
+    });
     const { files } = processStorageList(awsList);
     const list = [];
     files.forEach(async (f) => {
@@ -446,18 +450,6 @@ async function mawwalShowLoader({ params }) {
 }
 
 ///////////////////////
-
-async function getChildren(filePath) {
-  const { results } = await Storage.list(filePath, { pageSize: 1000 });
-  const files = results.filter((r) => r.size > 0);
-  const children = [];
-  files.forEach(async (f) => {
-    const path = await Storage.get(f.key);
-    children.push(path);
-  });
-  // debugger;
-  return children;
-}
 
 // export
 const loaders = {
