@@ -15,7 +15,7 @@ function PhotoTile({ data }) {
   }, [data]);
 
   return (
-    <Link to={data.id} className="photo-tile">
+    <Link to={data.id} target="_blank" rel="noreferer" className="photo-tile">
       <img src={file} alt="scene" />
     </Link>
   );

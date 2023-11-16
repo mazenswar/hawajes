@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import PaginatedArticles from '../components/PaginatedArticles';
 import useSearch from '../components/hooks/useSearch';
 
 export default function AlayamPage() {
-  const { articles, publisher, header } = useLoaderData();
+  const { articles } = useLoaderData();
   const [list, setList] = useState([]);
   const { SearchComponent, filteredList, filterItems } = useSearch(list);
 

@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react';
-
-import { useLoaderData } from 'react-router';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
-import useScreenDimensions from '../components/hooks/useScreenDimensions';
+
 import PageHeader from '../components/PageHeader';
 function PhotographyPage() {
-  const { headerSm, headerBg } = useLoaderData();
-  const { dimensions } = useScreenDimensions();
-
   return (
     <main id="photography-page">
       <PageHeader page="photography" />

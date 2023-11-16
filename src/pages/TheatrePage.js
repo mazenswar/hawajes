@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import PlayTile from '../components/theatre/PlayTile';
 import PageHeader from '../components/PageHeader';
 
 function TheatrePage() {
-  const { plays, header, headshot } = useLoaderData();
+  const { plays } = useLoaderData();
   return (
     <main id="theatre-page">
       <PageHeader page="theatre" />
-      <h1 className="page-title">مسرحيات</h1>
       <section className="theatre-tiles-container flex-list-x">
         {plays.map((p) => (
           <Link

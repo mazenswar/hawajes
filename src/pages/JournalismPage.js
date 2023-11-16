@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 
 export default function JournalismPage() {
-  const { headshot, header } = useLoaderData();
   return (
     <main id="journalism-page">
       <PageHeader page="journalism" />

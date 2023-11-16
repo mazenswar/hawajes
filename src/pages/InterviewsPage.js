@@ -7,7 +7,6 @@ function InterviewsPage() {
 
   return (
     <main id="interviews-page">
-      <h1 className="page-title">مقابلات</h1>
       {interviews.map((i) => {
         return (
           <section className="play-section" key={i.title}>
@@ -16,9 +15,6 @@ function InterviewsPage() {
           </section>
         );
       })}
-      <section className="tba-section">
-        <h2> قيد الإنشاء</h2>
-      </section>
     </main>
   );
 }

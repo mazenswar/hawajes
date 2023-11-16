@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { translateDateToArabicString } from '../../util/helpers';
 
 export default function ArticleTile({ data: article }) {
-  const imgPath = `/dev/images/${article.publisherEN}/${article.categoryEN}/${article.imgUrl}`;
   return (
     <Link
       to={
@@ -14,6 +13,8 @@ export default function ArticleTile({ data: article }) {
         '/' +
         article.id
       }
+      target="_blank"
+      rel="noreferer"
       className="tile article-tile clickable-box flex-list-y"
     >
       {/* <img src={imgPath} alt="article-thumbnail" /> */}

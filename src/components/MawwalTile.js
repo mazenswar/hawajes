@@ -16,7 +16,7 @@ function MawwalTile({ data }) {
     getFile();
   }, [data]);
   return (
-    <Link to={data.id} className="mawwal-tile">
+    <Link to={data.id} target="_blank" rel="noreferer" className="mawwal-tile">
       <img src={file} alt="mawwal" />
     </Link>
   );

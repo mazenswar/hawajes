@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router';
 import PaginatedArticles from '../components/PaginatedArticles';
 
 function PanoramaPage() {
-  const { articles, publisher, header } = useLoaderData();
+  const { articles, publisher } = useLoaderData();
   const [list, setList] = useState([]);
 
   useEffect(() => {

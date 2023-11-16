@@ -27,12 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <pages.LandingPage />,
-        loader: loaders.landingPageLoader,
       },
       {
         path: '/mawwal',
         element: <pages.MawwalPage />,
-        loader: loaders.mawwalMainLoader,
       },
       {
         path: '/mawwal/:category',
@@ -47,7 +45,6 @@ const router = createBrowserRouter([
       {
         path: '/journalism',
         element: <pages.JournalismPage />,
-        loader: loaders.journalismPageLoader,
       },
       {
         path: '/journalism/aak/:category',
@@ -67,7 +64,6 @@ const router = createBrowserRouter([
       {
         path: '/publications',
         element: <pages.PublicationsPage />,
-        loader: loaders.publicationsLoader,
       },
       {
         path: '/publications/:name',
@@ -92,7 +88,6 @@ const router = createBrowserRouter([
       {
         path: '/photography',
         element: <pages.PhotographyPage />,
-        loader: loaders.photographyLoader,
       },
       {
         path: '/photography/:category',

@@ -1,4 +1,4 @@
-import { Storage } from 'aws-amplify';
+import { Storage, Predicates } from 'aws-amplify';
 import { Article, Mawwal, Photo } from '../../models';
 import { DataStore } from '@aws-amplify/datastore';
 import { defer } from 'react-router-dom';
@@ -18,6 +18,10 @@ async function interviewsLoader() {
     {
       file: 'https://www.youtube.com/embed/geOOpkqA_Lc?si=g066nlE1mJymChJ4',
       title: 'لقاء الجمعة مع إبراهيم بشمي (١٩٩٦)',
+    },
+    {
+      file: 'https://www.youtube.com/embed/1ANYos6abQY?si=TybHJQYUuB2MGFCB',
+      title: 'جمعية الصحفيين مع إيمان مرهون',
     },
   ];
 
@@ -46,32 +50,18 @@ function processStorageList(response) {
 /////////////////////////////// TEST
 
 //////////////////////////////// LOADERS
-// function getHeader(page) {
-//   const headerBg = Storage.get('headers');
-//   const headerSm = Storage.get('logos/facebook.png');
-
-//   Promise.all([headerBg, headerSm]).then((results) => {
-//     return results;
-//   });
-// }
-
-async function landingPageLoader({ params }) {
-  const headerBg = await Storage.get('headers/landing-header-bg.png');
-  const headerSm = await Storage.get('headers/landing-header-sm.png');
-  return { headerBg, headerSm };
-}
-
-async function journalismPageLoader({ params }) {
-  const headshot = await Storage.get('headshots/journalism.jpg');
-  const header = await Storage.get('headers/journalism-header.png');
-  return { headshot, header };
-}
 
 async function articlePageLoader({ params }) {
   const { publisher, category, id } = params;
-  const articles = await DataStore.query(Article, (c) =>
-    c.and((c) => [c.publisherEN.eq(publisher), c.categoryEN.eq(category)])
+  const articles = await DataStore.query(
+    Article,
+    (c) =>
+      c.and((c) => [c.publisherEN.eq(publisher), c.categoryEN.eq(category)]),
+    {
+      sort: (s) => s.date('ASCENDING'),
+    }
   );
+
   const article = articles.find((a) => a.id === id);
   const articleIndex = articles.indexOf(article);
   const filepath = article.fullPath.slice(1);
@@ -247,9 +237,8 @@ async function playLoader({ params }) {
 
 async function playsLoader({ params }) {
   // return testPlays;
-  const headshot = await Storage.get('headshots/theatre.jpg');
-  const header = await Storage.get('headers/theatre-header.png');
-  return { headshot, header, plays };
+
+  return { plays };
 }
 
 async function alayamLoader({ params }) {
@@ -278,7 +267,6 @@ async function aakLoader({ params }) {
     columns: [],
   };
   let articles = [];
-  const header = await Storage.get('headers/journalism-header.png');
 
   try {
     articles = await DataStore.query(Article, (c) => c.publisherEN.eq('aak'), {
@@ -296,31 +284,13 @@ async function aakLoader({ params }) {
     category: params.category || '',
     articlesByCategory,
     allArticles: articles,
-    header,
   };
-}
-
-async function publicationsLoader({ params }) {
-  const header = await Storage.get('headers/journalism-header.png');
-  return { header };
 }
 
 async function publicationLoader({ params }) {
   // return publications.find((p) => p.id === params.id);
   const response = Storage.get('publications/' + params.name + '.pdf');
   return defer({ name: params.name, file: response });
-}
-
-async function photographyLoader({ params }) {
-  // const { files } = processStorageList(await Storage.list('photography/'));
-  // const list = [];
-  // files.forEach(async (f) => {
-  //   const file = await Storage.get(f.key);
-  //   list.push({ ...f, file });
-  // });
-  const headerBg = await Storage.get('headers/photography-header-bg.jpg');
-  const headerSm = await Storage.get('headers/photography-header-sm.jpg');
-  return { headerBg, headerSm };
 }
 
 async function photographyCategoryLoader({ params }) {
@@ -421,21 +391,14 @@ const publisherLoaders = {
 };
 async function publisherPageLoader({ params }) {
   const loader = publisherLoaders[params.publisher];
-  const header = await Storage.get('headers/journalism-header.png');
 
   return {
     articles: await loader(params),
     publisher: params.publisher,
-    header,
   };
 }
 
 // MAWWAL
-async function mawwalMainLoader({ params }) {
-  const header = await Storage.get('headers/journalism-header.png');
-
-  return { header };
-}
 
 async function mawwalLoader({ params }) {
   let mawwals = [];
@@ -501,18 +464,14 @@ const loaders = {
   playLoader,
   articlePageLoader,
   aakLoader,
-  journalismPageLoader,
   playsLoader,
-  publicationsLoader,
   publicationLoader,
-  photographyLoader,
+
   photographyCategoryLoader,
   alayamLoader,
   publisherPageLoader,
   mawwalLoader,
   photoLoader,
-  landingPageLoader,
-  mawwalMainLoader,
   mawwalShowLoader,
   interviewsLoader,
 };

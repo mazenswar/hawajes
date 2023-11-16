@@ -11,7 +11,7 @@ const defaultTabsState = {
   all: false,
 };
 export default function AakPage() {
-  const { category, allArticles, articlesByCategory, header } = useLoaderData();
+  const { category, allArticles, articlesByCategory } = useLoaderData();
   const [list, setList] = useState([]);
   const { SearchComponent, filteredList, filterItems } = useSearch(list);
 

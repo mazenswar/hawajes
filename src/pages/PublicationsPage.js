@@ -1,16 +1,13 @@
 import React from 'react';
 
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 
 function PublicationsPage() {
-  const { header } = useLoaderData();
   return (
     <main>
       <PageHeader page="publications" />
-      <h1 className="page-title">اصدارات ومؤلفات</h1>
 
-      <h2 className="page-title">مواويل</h2>
       <section className="mawwal-section publishers-container">
         <Link to="makaka" className="box-link flex-list-y">
           مكاكة عشق
@@ -20,7 +17,6 @@ function PublicationsPage() {
         </Link>
       </section>
 
-      <h2 className="page-title">قصص أطفال</h2>
       <section className="children-section publishers-container">
         <Link to="rainbow" className="box-link flex-list-y">
           حكاية قوس قزح
