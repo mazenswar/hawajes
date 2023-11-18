@@ -58,16 +58,16 @@ export default function AakPage() {
           مقالات
         </Link>
         <Link
-          className={setActiveStateClassName('hawajes')}
-          to="/journalism/aak/hawajes"
-        >
-          هواجس
-        </Link>
-        <Link
           className={setActiveStateClassName('hawamesh')}
           to="/journalism/aak/hawamesh"
         >
           هوامش
+        </Link>
+        <Link
+          className={setActiveStateClassName('hawajes')}
+          to="/journalism/aak/hawajes"
+        >
+          هواجس
         </Link>
       </>
     );

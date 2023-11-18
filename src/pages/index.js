@@ -21,8 +21,9 @@ import MawwalShowPage from './MawwalShowPage';
 import ContactUs from './ContactUs';
 import ContactError from './ContactError';
 import ContactSuccess from './ContactSuccess';
-
+import PanoramaPage from './PanoramaPage';
 const pages = {
+  PanoramaPage,
   ContactError,
   ContactSuccess,
   InterviewsPage,

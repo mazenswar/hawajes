@@ -25,6 +25,9 @@ function useSearch(list) {
   //
   function yearsToSelect() {
     let years = list.map((element) => {
+      if (element.year === null) {
+        console.log(element);
+      }
       return new Date(element.date).getFullYear();
     });
     years = [...new Set(years)];

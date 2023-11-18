@@ -52,6 +52,16 @@ const router = createBrowserRouter([
         loader: loaders.aakLoader,
       },
       {
+        path: '/journalism/panorama/:category',
+        element: <pages.PanoramaPage />,
+        loader: loaders.panoramaLoader,
+      },
+      {
+        path: '/journalism/sada/:category',
+        element: <pages.SadaPage />,
+        loader: loaders.sadaLoader,
+      },
+      {
         path: '/journalism/:publisher',
         element: <pages.PublisherPage />,
         loader: loaders.publisherPageLoader,

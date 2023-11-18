@@ -7,10 +7,10 @@ export default function JournalismPage() {
     <main id="journalism-page">
       <PageHeader page="journalism" />
       <div className="publishers-container">
-        <Link className="box-link flex-list-y" to="sada">
+        <Link className="box-link flex-list-y" to="sada/all">
           صدى الأسبوع
         </Link>
-        <Link className="box-link flex-list-y" to="panorama">
+        <Link className="box-link flex-list-y" to="panorama/all">
           بانوراما الخليج
         </Link>
         <Link className="box-link flex-list-y" to="aak/all">

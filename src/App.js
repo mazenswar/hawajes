@@ -6,7 +6,6 @@ function App() {
   console.log(
     'Hello! for more info about this website email us at hawajesaqswar AT gmail DOT com'
   );
-
   return <RouterProvider router={router} />;
 }
 

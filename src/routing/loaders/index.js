@@ -356,23 +356,50 @@ async function alwatanLoader() {
   return articles;
 }
 
-async function sadaLoader() {
-  let articles = [];
+async function sadaLoader({ params }) {
+  const articlesByCategory = {
+    general: [],
+    inv: [],
+    aswag: [],
+    lagta: [],
+    ghurba: [],
+    gabel: [],
+    esharat: [],
+    baloonat: [],
+    kalma: [],
+  };
+
+  let objects = [];
+
   try {
-    articles = await DataStore.query(Article, (c) => c.publisherEN.eq('sada'), {
+    objects = await DataStore.query(Article, (c) => c.publisherEN.eq('sada'), {
       sort: (s) => s.date('ASCENDING'),
     });
   } catch (error) {
     console.log('Error retrieving data ', error);
   }
 
-  return articles;
+  objects.forEach((a) => {
+    articlesByCategory[a.categoryEN].push(a);
+  });
+
+  return {
+    category: params.category || '',
+    articlesByCategory,
+    allArticles: objects,
+  };
 }
 
-async function panoramaLoader() {
-  let articles = [];
+async function panoramaLoader({ params }) {
+  const articlesByCategory = {
+    inv: [],
+    sout: [],
+    zoom: [],
+  };
+  let objects = [];
+
   try {
-    articles = await DataStore.query(
+    objects = await DataStore.query(
       Article,
       (c) => c.publisherEN.eq('panorama'),
       {
@@ -383,7 +410,30 @@ async function panoramaLoader() {
     console.log('Error retrieving data ', error);
   }
 
-  return articles;
+  objects.forEach((a) => {
+    articlesByCategory[a.categoryEN].push(a);
+  });
+
+  return {
+    category: params.category || '',
+    articlesByCategory,
+    allArticles: objects,
+  };
+  /////////////////
+  // let articles = [];
+  // try {
+  //   articles = await DataStore.query(
+  //     Article,
+  //     (c) => c.publisherEN.eq('panorama'),
+  //     {
+  //       sort: (s) => s.date('ASCENDING'),
+  //     }
+  //   );
+  // } catch (error) {
+  //   console.log('Error retrieving data ', error);
+  // }
+
+  // return articles;
 }
 
 const publisherLoaders = {
@@ -456,9 +506,10 @@ const loaders = {
   playLoader,
   articlePageLoader,
   aakLoader,
+  sadaLoader,
   playsLoader,
   publicationLoader,
-
+  panoramaLoader,
   photographyCategoryLoader,
   alayamLoader,
   publisherPageLoader,
