@@ -2,7 +2,7 @@
 
 
 html {
-	width: clamp(300px, 100vw, 1500px);
+	width: 100vw;
 	max-width: 100vw;
 };
 
@@ -13,7 +13,9 @@ html, body, #root {
 }
 
 body, #root {
-	width: 100%;
+	width: clamp(300px, 100vw, 1500px);
+	margin: 0 auto;
+	// width: 100%;
 }
 
 

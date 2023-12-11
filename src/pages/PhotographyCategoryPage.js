@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 const categories = {
   personal: 'صور شخصية',
   art: 'لقطات فنية',
+  event: 'حفل تدشين الموقع',
 };
 
 function PhotographyCategoryPage() {

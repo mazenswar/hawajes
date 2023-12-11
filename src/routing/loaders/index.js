@@ -8,6 +8,10 @@ import { defer } from 'react-router-dom';
 async function interviewsLoader() {
   const interviews = [
     {
+      file: 'https://www.youtube.com/embed/WA1NjPIey3Q?si=FSlALFnrhFAvNJ_m',
+      title: 'ندوة تدشين الموقع الإلكتروني',
+    },
+    {
       file: 'https://www.youtube.com/embed/mkMBu_hLKK8?si=orxjC0puDWA2QTgr',
       title: 'التاريخ الشفهي',
     },

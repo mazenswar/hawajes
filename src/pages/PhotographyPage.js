@@ -8,6 +8,9 @@ function PhotographyPage() {
     <main id="photography-page">
       <PageHeader page="photography" />
       <div className="publishers-container">
+        <Link className="box-link flex-list-y" to="event">
+          حفل تدشين الموقع
+        </Link>
         <Link className="box-link flex-list-y" to="art">
           لقطات فنية
         </Link>

@@ -77,10 +77,6 @@ export default function Navbar() {
             src={dimensions.width < 1200 ? logoTwoHorizontal : logoTwo}
             alt="logo"
           />
-          {/* <img
-            src={dimensions.width < 1200 ? logoOneBg : logoOneBg}
-            alt="logo"
-          /> */}
         </Link>
       </div>
     </nav>
