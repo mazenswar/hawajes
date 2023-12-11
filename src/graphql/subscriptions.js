@@ -1,12 +1,61 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateMawwal = /* GraphQL */ `
+  subscription OnCreateMawwal($filter: ModelSubscriptionMawwalFilterInput) {
+    onCreateMawwal(filter: $filter) {
+      id
+      fullPath
+      filename
+      category
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateMawwal = /* GraphQL */ `
+  subscription OnUpdateMawwal($filter: ModelSubscriptionMawwalFilterInput) {
+    onUpdateMawwal(filter: $filter) {
+      id
+      fullPath
+      filename
+      category
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteMawwal = /* GraphQL */ `
+  subscription OnDeleteMawwal($filter: ModelSubscriptionMawwalFilterInput) {
+    onDeleteMawwal(filter: $filter) {
+      id
+      fullPath
+      filename
+      category
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
 export const onCreatePhoto = /* GraphQL */ `
   subscription OnCreatePhoto($filter: ModelSubscriptionPhotoFilterInput) {
     onCreatePhoto(filter: $filter) {
       id
       filename
       fullPath
+      category
       createdAt
       updatedAt
       _version
@@ -22,6 +71,7 @@ export const onUpdatePhoto = /* GraphQL */ `
       id
       filename
       fullPath
+      category
       createdAt
       updatedAt
       _version
@@ -37,6 +87,7 @@ export const onDeletePhoto = /* GraphQL */ `
       id
       filename
       fullPath
+      category
       createdAt
       updatedAt
       _version
@@ -47,11 +98,8 @@ export const onDeletePhoto = /* GraphQL */ `
   }
 `;
 export const onCreateArticle = /* GraphQL */ `
-  subscription OnCreateArticle(
-    $filter: ModelSubscriptionArticleFilterInput
-    $owner: String
-  ) {
-    onCreateArticle(filter: $filter, owner: $owner) {
+  subscription OnCreateArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onCreateArticle(filter: $filter) {
       id
       publisherEN
       publisherAR
@@ -71,17 +119,13 @@ export const onCreateArticle = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
       __typename
     }
   }
 `;
 export const onUpdateArticle = /* GraphQL */ `
-  subscription OnUpdateArticle(
-    $filter: ModelSubscriptionArticleFilterInput
-    $owner: String
-  ) {
-    onUpdateArticle(filter: $filter, owner: $owner) {
+  subscription OnUpdateArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onUpdateArticle(filter: $filter) {
       id
       publisherEN
       publisherAR
@@ -101,17 +145,13 @@ export const onUpdateArticle = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
       __typename
     }
   }
 `;
 export const onDeleteArticle = /* GraphQL */ `
-  subscription OnDeleteArticle(
-    $filter: ModelSubscriptionArticleFilterInput
-    $owner: String
-  ) {
-    onDeleteArticle(filter: $filter, owner: $owner) {
+  subscription OnDeleteArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onDeleteArticle(filter: $filter) {
       id
       publisherEN
       publisherAR
@@ -131,7 +171,6 @@ export const onDeleteArticle = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
       __typename
     }
   }
