@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 
 export default function JournalismPage() {
+  //comment
   return (
     <main id="journalism-page">
       <PageHeader page="journalism" />
