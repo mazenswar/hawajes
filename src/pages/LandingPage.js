@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 
 function LandingPage() {
-  // async function getArticles() {
-
   return (
     <main id="landing-page">
       <PageHeader page="landing" />
