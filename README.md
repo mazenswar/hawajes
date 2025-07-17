@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# AQSWAR Digital Archive
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**AQSWAR** is the private, family-maintained web archive preserving the lifetime of published journalism, essays, children’s books, plays, and poetry by **Aqeel Swar**, a pioneering Bahraini journalist and writer. This site exists solely to share and safeguard his cultural and historical legacy, and is **not** intended as an open-source or publicly reusable codebase.
 
-## Available Scripts
+## Purpose & Background
+- **Legacy preservation**: Aggregates hundreds of articles, daily columns, children’s books, plays, and Bahraini poetry spanning 50+ years.  
+- **Private initiative**: Built and maintained by the Alswar family to ensure reliable long-term access for researchers and loved ones.  
+- **V1 (Production)**: A fully functional Next.js frontend backed by AWS Amplify DataStore and S3. Visitors can browse by:  
+  - **Articles**  
+  - **Photography**  
+  - **Publications**  
 
-In the project directory, you can run:
+## Architecture & Technology
+- **Frontend**: Next.js 14 (App Router), React, SCSS Modules  
+- **Backend & Data**: AWS Amplify (GraphQL DataStore models for articles, photos, publications)  
+- **Storage & CDN**: AWS S3 hosts media assets (PDFs, images) and JSON metadata  
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Roadmap (V2)
+1. **OCR & Indexing**: Custom Node.js scripts combine Tesseract and Google Vision to extract text and build a lightweight search index 
+2. **Complete OCR pipeline** for all archived PDFs (5,000+ articles).  
+3. **Editorial QA workflow** with dynamic JSON indexes to track review status.
+4. **Full-text search** across every article and photo description.  
+5. **Performance & SEO**: Optimize image delivery, page speed, and metadata for improved discoverability.  
+6. **Enhanced archive features**: User-defined filters, faceted browsing, and historical timelines.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Disclaimer
+This repository and its contents are **not** intended for public cloning or direct reuse. Sensitive API keys, environment configurations, and proprietary data models are required to build and run the system. Unauthorized use or distribution is discouraged.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Developer
+**Mazen Alswar** — Software Engineer  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🔗 [👤 Website](https://mazenswar.dev) | [💼 LinkedIn](https://www.linkedin.com/in/mazen-alswar/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2025 AQSWAR Project | All rights reserved by the Alswar family
